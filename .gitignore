@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temp files
+chem_tmp.xlsx
+*_tmp.xlsx
+~$*.xlsx
+
+# Output (don't track generated Excel files)
+*.xlsx
+!examples/*.xlsx
