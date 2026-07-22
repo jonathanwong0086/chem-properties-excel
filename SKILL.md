@@ -146,7 +146,7 @@ allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent,
 | **Sigma-Aldrich SDS** | `https://www.sigmaaldrich.com/` → 搜索产品 → Download SDS | SDS中Section 9: Physical & Chemical Properties (闪点/密度/物态) |
 | **CAMEO Chemicals** | `https://cameochemicals.noaa.gov/chemical/<CAS号>` | Reactivity: 遇水反应性；Flammability: 爆炸极限；Health: 禁用水？ |
 | **NIOSH Pocket Guide** | `https://www.cdc.gov/niosh/npg/npgd<编号>.html` | Explosive limits (LEL/UEL)；IDLH值；Relative Density (蒸气密度MR) |
-| **FAO/WHO JMPR** | `https://www.fao.org/agriculture/crops/` | 农药原药物化及毒理数据（如溴虫腈/chlorfenapyr） |
+| **FAO/WHO JMPR** | `https://www.fao.org/agriculture/crops/` | 农药原药物化及毒理数据 |
 
 ### 中国法规标准
 
