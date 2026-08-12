@@ -131,7 +131,9 @@ pip install openpyxl
 
 ## License
 
-[GNU GPL v3.0 only](LICENSE)
+除非作者另行给予明确的书面授权，本项目的使用、复制、修改和分发均适用 [GNU General Public License v3.0 only](LICENSE)（GPL-3.0-only）。
+
+如需申请作者特别授权，请联系：[wjc0086@163.com](mailto:wjc0086@163.com)。
 
 
 ## 特别提醒！！！
