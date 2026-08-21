@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/).
 
+## [2.2.0] - 2026-08-21
+
+### Added
+- **GB/T 42594-2023 介质危害分类**（§3.5）：新增本地参考 `gbt42594-2023-reference.json`（附录A表A.1 584条 + 表A.2 17条，按 CAS/UN/中文名/别名建立 search_index），agent 按 CAS/UN/名称查得后**原样抄录**6个字段，无需联网
+- **物性数据主表扩至23列**：新增6列 GB/T 42594 字段
+  - 毒性(GB/T42594) — 格式多样（`IV`、`III *`、`IV / III`、`III/II`、`-(II-密封性)/I`、`III*/II`等），罗马数字/斜杠/星号/括号全部原样抄录，不做归一、不做处理
+  - 燃烧爆炸特性
+  - 介质与金属材料相容性提示
+  - 反应和稳定性提示
+  - 危害提示
+  - GHS健康和环境危害类别
+- 说明区域新增毒性列脚注 a/b/c（改写原标准"该列"表述为"毒性(GB/T42594)列"，避免脱离上下文歧义）
+
+### Changed
+- SKILL.md 版本 2.1.0 → 2.2.0
+- 数据来源汇总表中 GB/T 42594-2023 的"提供字段"由"毒性分级"扩展为6个字段
+- §3.5 优先读取本地 JSON，查不到时标注"未列入GB/T 42594-2023"
+
 ## [2.1.0] - 2026-07-22
 
 ### Added
