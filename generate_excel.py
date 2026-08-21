@@ -86,10 +86,13 @@ def build_excel(chemicals, project_name, output_dir, src_data):
     al = Alignment(horizontal="left", vertical="center", wrap_text=True)
     tb = Border(left=Side(style="thin"), right=Side(style="thin"),
                 top=Side(style="thin"), bottom=Side(style="thin"))
-    red = PatternFill(start_color="FFCCCC", end_color="FFCCCC", fill_type="solid")
+        red = PatternFill(start_color="FFCCCC", end_color="FFCCCC", fill_type="solid")
     org = PatternFill(start_color="FFE0B2", end_color="FFE0B2", fill_type="solid")
     yel = PatternFill(start_color="FFF9C4", end_color="FFF9C4", fill_type="solid")
     wht = PatternFill(start_color="FFFFFF", end_color="FFFFFF", fill_type="solid")
+    # 斑马行4档淡蓝（黑白打印友好，最深仍浅），按数据行序号循环
+    ZEBRA = ["FFFFFF", "F7FAFD", "EEF4FA", "E4EEF7"]
+    zebra_fills = [PatternFill(start_color=z, end_color=z, fill_type="solid") for z in ZEBRA]
 
     # 表头
     for ci, (h, _) in enumerate(FIELDS, 1):
@@ -110,7 +113,8 @@ def build_excel(chemicals, project_name, output_dir, src_data):
             c = ws.cell(ri, ci, val)
             c.font = df; c.border = tb
             c.alignment = al if fk in ("name","sol","explosion","oel","danger_cat","water_ext") else ac
-            c.fill = rfill if ci in COLOR_COLS else wht
+            # 火灾类别三列高亮优先；其余列按斑马循环着色
+            c.fill = rfill if ci in COLOR_COLS else zebra_fills[(ri - 2) % 4]
 
             src = chem.get("sources", {}).get(fk, "")
             if src and fk not in ("id", "name"):
@@ -122,7 +126,7 @@ def build_excel(chemicals, project_name, output_dir, src_data):
     widths = [5, 26, 20, 20, 20, 22, 22, 14, 20, 22, 10, 22, 22, 14, 22, 20]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[openpyxl.utils.get_column_letter(i)].width = w
-    ws.freeze_panes = "A2"
+    ws.freeze_panes = "C2"  # 冻结表头行 + 序号列、名称列
     for ri in range(2, len(chemicals) + 2):
         ws.row_dimensions[ri].height = 30
 
