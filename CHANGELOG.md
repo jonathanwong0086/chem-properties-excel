@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/).
 
+## [2.4.0] - 2026-08-27
+
+### Added
+- **§2.5 查询关键词模板新增优先级规则**：明确"中文名+CAS号"精确组合查询为第1优先级（如`"<中文名> <CAS号> 分子式 外观"`），命中率显著高于英文名/模糊短语；英文查询降级为第1轮无果后的补充手段，不再作为首选
+- 新增"两轮都试过才算查过"的硬性要求：仅试英文或仅试模糊短语不得直接标注"数据未公开"
+
+### Changed
+- 新增百度系站点搜索注意事项：百度百科/百度站点本身很难通过WebSearch直接命中（即使显式加"百度百科"关键词），但这只是该站点排名问题，不代表中文化工数据源（ChemicalBook中文站、Capotchem、化源网等）整体查不到
+- 新增手性体/消旋体命名陷阱提示：L型/D型/DL消旋体CAS号不同，供应商站点通常只收录单一构型，查到CAS后必须核对构型是否与用户需求一致
+- SKILL.md 版本 2.2.0 → 2.4.0（跳过2.3.0编号以避免与仓库中已存在但未同步frontmatter版本号的`v2.3.0` tag混淆）
+
+### Fixed
+- `generate_excel.py` 第89行 `red = PatternFill(...)` 存在多余缩进导致 `IndentationError`，脚本无法执行；修复缩进对齐
+
 ## [2.2.0] - 2026-08-21
 
 ### Added

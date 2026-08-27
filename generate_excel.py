@@ -86,7 +86,7 @@ def build_excel(chemicals, project_name, output_dir, src_data):
     al = Alignment(horizontal="left", vertical="center", wrap_text=True)
     tb = Border(left=Side(style="thin"), right=Side(style="thin"),
                 top=Side(style="thin"), bottom=Side(style="thin"))
-        red = PatternFill(start_color="FFCCCC", end_color="FFCCCC", fill_type="solid")
+    red = PatternFill(start_color="FFCCCC", end_color="FFCCCC", fill_type="solid")
     org = PatternFill(start_color="FFE0B2", end_color="FFE0B2", fill_type="solid")
     yel = PatternFill(start_color="FFF9C4", end_color="FFF9C4", fill_type="solid")
     wht = PatternFill(start_color="FFFFFF", end_color="FFFFFF", fill_type="solid")

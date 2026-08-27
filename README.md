@@ -110,7 +110,7 @@ cp -r . ~/.claude/skills/chem-properties-excel
 
 ```
 chem-properties-excel/
-├── SKILL.md                          # Skill 定义（核心流程，v2.2.0）
+├── SKILL.md                          # Skill 定义（核心流程，v2.4.0）
 ├── README.md                         # 本文件
 ├── CHANGELOG.md                      # 版本历史
 ├── LICENSE                           # GPL-3.0-only 许可证

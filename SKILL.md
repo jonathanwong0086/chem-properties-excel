@@ -5,7 +5,7 @@ description: >
   交叉比对中国法规标准，生成带来源注释的Excel物性数据表。
   支持脏数据（大段工艺描述）、干净列表、或半成品输入。
   Trigger: "物性表" / "化学品数据" / "chemical properties" / "生成物性excel"
-version: 2.2.0
+version: 2.4.0
 allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent, AskUserQuestion]
 ---
 
@@ -172,11 +172,17 @@ allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent,
 
 ### 查询关键词模板
 
-WebSearch 查询时使用以下关键词模式：
+**优先级（严格遵守，不得跳过第1轮就断定"数据未公开"）：**
+
+1. **中文名 + CAS号精确组合**（首选，命中率最高）：`"<中文名> <CAS号> 分子式 外观"`、`"<中文名> CAS <CAS号> 熔点 沸点 闪点 密度"` — 即使CAS号来源尚未确认也应先试，这类查询能稳定命中 ChemicalBook 中文站、Capotchem（capotchem.com）、化源网（chemsrc.com）等中文化工数据库的目标物质页面。
+2. 若第1轮中文查询无结果，再试英文名/纯模糊描述作为补充，**不作为首选**：`"<英文名> boiling point melting point flash point density SDS"`。
+3. 第1、2轮均无结果时才可标注"数据未公开"——两轮都试过才算查过，只试英文或只试模糊短语不算。
+
 ```
-# 物化属性
+# 物化属性（中文名+CAS号优先）
+"<中文名> <CAS号> 分子式 外观"
 "<中文名> CAS <CAS号> 熔点 沸点 闪点 密度"
-"<英文名> boiling point melting point flash point density SDS"
+"<英文名> boiling point melting point flash point density SDS"   # 第1轮无果时补充
 
 # 安全数据
 "<中文名> 安全技术说明书 SDS 爆炸极限"
@@ -186,6 +192,10 @@ WebSearch 查询时使用以下关键词模式：
 "GBZ 2.1-2019 <化学名> 职业接触限值"
 "危险化学品目录 <化学名> CAS <CAS号>"
 ```
+
+**注意事项：**
+- 百度百科/百度系站点本身很难通过 WebSearch 直接命中（即使显式加"百度百科"关键词），排名普遍靠后——但这只是百度一个站点的问题，不代表中文化工数据源整体查不到。不要把"百度查不到"等同于"中文数据源查不到"。
+- **手性体/消旋体命名陷阱：** L型/D型/DL消旋体的CAS号不同，供应商站点通常只收录他们卖的那一个构型。查到CAS后必须核对该构型是否与用户给定的名称/需求一致（如"邻氯苯甘氨酸"若为L型，CAS与DL消旋体不同），避免张冠李戴。
 
 ---
 
