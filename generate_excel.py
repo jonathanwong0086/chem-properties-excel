@@ -10,7 +10,7 @@ from openpyxl.comments import Comment
 # ========== 在此处填入化学品数据 ==========
 # 每个化学品是一个 dict，包含：
 #   name, cas_no, sources (每个字段一个来源URL),
-#   mp, bp, fp, density, state, fire, sol, den_water, water_ext, explosion, vapor, oel, danger_cat
+#   mp, bp, fp, density, state, fire, sol, den_water, water_ext, explosion, vapor, oel, danger_cat, toxicology
 
 chemicals = [
     # 示例：
@@ -31,6 +31,7 @@ chemicals = [
     #         "vapor": "NIST Chemistry WebBook (MR=1.59)",
     #         "oel": "GBZ 2.1-2019 表1 (https://openstd.samr.gov.cn/)",
     #         "danger_cat": "《危险化学品目录》(2015版) 第2568项",
+    #         "toxicology": "《危险化学品安全技术全书》第三版 第xx页 (本地参考)",
     #     },
     #     "mp": "-114.1", "bp": "78.3", "fp": "12",
     #     "density": "0.789", "state": "液体",
@@ -38,6 +39,7 @@ chemicals = [
     #     "den_water": "否", "water_ext": "否",
     #     "explosion": "3.3%~19%", "vapor": "是 (MR=1.59)",
     #     "oel": "TWA 200", "danger_cat": "易燃液体 + 有毒",
+    #     "toxicology": "大鼠经口LD50 7060 mg/kg；小鼠吸入LC50 (4h) 128000 mg/m³",
     # },
 ]
 
@@ -69,6 +71,7 @@ FIELDS = [
     ("水溶性","sol"),("密度>水？","den_water"),("禁用水灭火？","water_ext"),
     ("爆炸极限(LEL~UEL)","explosion"),("蒸汽>空气？","vapor"),
     ("职业接触限值(mg/m³)","oel"),("危化品类别","danger_cat"),
+    ("毒理数据(LD50/LC50)","toxicology"),
 ]
 COLOR_COLS = {2, 3, 9}  # 名称、CAS、火灾类别着色
 
@@ -112,7 +115,7 @@ def build_excel(chemicals, project_name, output_dir, src_data):
             val = (ri - 1) if fk == "id" else str(chem.get(fk, ""))
             c = ws.cell(ri, ci, val)
             c.font = df; c.border = tb
-            c.alignment = al if fk in ("name","sol","explosion","oel","danger_cat","water_ext") else ac
+            c.alignment = al if fk in ("name","sol","explosion","oel","danger_cat","water_ext","toxicology") else ac
             # 火灾类别三列高亮优先；其余列按斑马循环着色
             c.fill = rfill if ci in COLOR_COLS else zebra_fills[(ri - 2) % 4]
 
@@ -123,7 +126,7 @@ def build_excel(chemicals, project_name, output_dir, src_data):
                 c.comment.height = 70
 
     # 列宽
-    widths = [5, 26, 20, 20, 20, 22, 22, 14, 20, 22, 10, 22, 22, 14, 22, 20]
+    widths = [5, 26, 20, 20, 20, 22, 22, 14, 20, 22, 10, 22, 22, 14, 22, 20, 40]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[openpyxl.utils.get_column_letter(i)].width = w
     ws.freeze_panes = "C2"  # 冻结表头行 + 序号列、名称列
@@ -147,7 +150,7 @@ def build_excel(chemicals, project_name, output_dir, src_data):
     notes = [
         "说明:",
         "1. 每个单元格右上角红三角 = 来源注释，同一行不同列来源不同。",
-        "2. 火灾危险性类别仅供参考，实际分类应以当地消防部门核定为准。",
+        "2. 【重要】火灾危险性类别仅依据闪点(及气体爆炸下限)简化判定，非GB 50016-2014表3.1.1完整判据，仅供参考，正式消防设计/合规判定须以当地消防部门核定为准。",
         "3. 仅标注甲/乙/丙类，非可燃物质统一标注为\"非可燃\"。",
         "4. 职业接触限值依据 GBZ 2.1-2019，单位 mg/m³。",
         "5. 危化品类别依据《危险化学品目录》(2015版)。",
@@ -191,7 +194,7 @@ def build_excel(chemicals, project_name, output_dir, src_data):
     remarks = [
         "备注:",
         "1. 每个数据单元格右上角红三角 = 该数据点的具体来源，同一行不同列来源不同，全程可追溯。",
-        "2. 火灾危险性类别仅供参考，实际分类应以当地消防部门核定为准。",
+        "2. 【重要】火灾危险性类别仅依据闪点(及气体爆炸下限)简化判定，非GB 50016-2014表3.1.1完整判据，仅供参考，正式消防设计/合规判定须以当地消防部门核定为准。",
         "3. 中国法规数值优先采用。",
         "4. 因牌号未定的物质，需查阅实际供应商SDS获取准确物性数据。",
     ]

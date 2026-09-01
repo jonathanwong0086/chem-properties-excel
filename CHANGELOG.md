@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/).
 
+## [2.5.0] - 2026-09-01
+
+### Added
+- **本地《危险化学品安全技术全书》优先查询（§2.0）**：新增 `sds-handbook-reference.jsonl` + `sds-handbook-index.json`，从《危险化学品安全技术全书·通用卷》(第三版) 结构化提取产物（MinerU RAG）中抽取1006个化学品条目的"理化特性"、"毒理学信息"与"消防措施"三节原文（经作者授权转载），按CAS号/中英文名/别名建立查找索引。§2 物性数据采集的**14个字段全部改为本地库优先**：先查本地 `physchem_text` 摘取熔点/沸点/闪点/密度/物态/水溶性/爆炸极限等字段，"禁用水灭火？"单独查 `firefighting_text`（消防措施原文中"灭火剂用xx"是否含水判定），命中即用，本地未命中或字段缺失时才转联网查询（原§2查询顺序保持不变，仅作为本地未命中后的补充手段）；火灾类别/OEL/危化品类别三项仍按对应法规目录判定，不受本地库结果影响
+- **本地毒理数据（§3.6）**：同一本地库同时提供LD50/LC50等毒理数据，查询顺序同上（本地优先，未命中再联网）
+- **物性数据主表扩至24列**：新增"毒理数据(LD50/LC50)"列，位于"危化品类别"列之后、"是否被列入有毒气体检测目录"列之前
+- 新增可信度标注规则：本地库1006条中仅33条经人工核实（`verified=true`），973条为OCR+规则自动识别（`verified=false`），命中未核实条目时批注末尾强制追加警示"⚠ 该条目未经人工核实(OCR自动识别)，如需用于正式合规文件请核对原书或联网复核"
+- 新增 `tools/build_sds_reference.py`：从MinerU RAG提取产物zip构建上述两个本地参考文件的脚本，保留"理化特性"+"毒理学信息"+"消防措施"三节原文，丢弃chunks/tables/images/assets及其余13节等本skill不需要的内容（57MB entries.jsonl精简至约1.8MB）
+- README 新增第三方内容授权说明章节，注明SDS手册摘录数据经作者确认授权转载
+- **火灾危险性类别判定依据显著提示**：SKILL.md §3.1、§4说明区域，以及`generate_excel.py`两处notes/remarks列表均新增醒目提示，明确本skill的甲/乙/丙类判定仅依据闪点(及气体爆炸下限)这一项指标简化判定，非GB 50016-2014表3.1.1完整判据，正式消防设计/合规判定须以当地消防部门核定为准
+
+### Changed
+- GB/T 42594-2023 6列的合并列区间由第18~23列调整为第19~24列（因新增毒理数据列插入在其之前）
+- SKILL.md 版本 2.4.0 → 2.5.0
+
 ## [2.4.0] - 2026-08-27
 
 ### Added
