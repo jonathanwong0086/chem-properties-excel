@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/).
 
+## [2.6.0] - 2026-09-03
+
+### Added
+- **原文位置引用格式（§1.1，强制）**：当输入为 MinerU / OCR 转换的报告、安全评价报告、工艺文件（正文夹带 `P12`、`T3`、`IMAGE_xxx`、`IMAGE***` 之类页码/表/图内部标记）时，**禁止把这些内部标记当作"原文位置/出处"输出给用户**——用户看不懂 `P* T* IMAGE***`，它们只是转换工具的锚点。凡需向用户交代"信息来自原文哪里"（提取清单出处列、化学品来源说明、Excel 单元格批注引用输入文档）时，一律转换为**"章节号 + 表/图题 + 原文摘录"三段式**，格式 `第<章节号>节 <表/图编号《题名》>："<原文摘录>"`，示例 `第4.5.3节表4.5.3-2《报警仪设置情况表》："105车间……三乙胺、甲苯、丙酮等"`
+- §1.1 给出转换方法（章节号向上回溯最近标题、表/图题取紧邻题注、摘录保留化学品名并用"……"省略、信息缺失时逐级降级）与硬性禁止项（输出中一律不得再出现任何 MinerU/OCR 内部标记）
+- 提取输出格式（内部）新增"原文出处(章节+表/图题+摘录)"列
+- §6 异常处理表新增"原文出现 MinerU/OCR 内部标记(P*/T*/IMAGE***)"处理行
+
+### Changed
+- §4 来源注释规则新增约束：引用用户输入文档作为来源时，位置一律按 §1.1 写成三段式
+- SKILL.md 版本 2.5.0 → 2.6.0
+
 ## [2.5.0] - 2026-09-01
 
 ### Added
