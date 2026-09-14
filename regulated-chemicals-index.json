@@ -1,0 +1,3673 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "list_type": "易制毒",
+      "reference_file": "precursor-chemicals-reference.md",
+      "source_document": "易制毒化学品管理条例 国办函〔2021〕58号-更新至2021年5月.docx",
+      "scope": "附件所载截至2021年5月目录"
+    },
+    {
+      "list_type": "易制爆",
+      "reference_file": "explosive-precursor-chemicals-reference.md",
+      "source_document": "易制爆危险化学品名录（2017年版）.doc",
+      "scope": "2017年版目录"
+    }
+  ],
+  "lookup_policy": {
+    "order": [
+      "cas_no",
+      "name",
+      "alias"
+    ],
+    "name_normalization": "Unicode NFKC、转小写、统一希腊字母并移除空白和常见标点",
+    "multiple_matches": "返回全部记录，不静默择一",
+    "conditional_explosive_match": "命中含浓度、含水量、涂层、粒径、物态或配方条件的记录时，条件未知应返回需核实浓度/形态",
+    "precursor_salt_rule": "第一类、第二类记录的可能盐类同样受管制；盐类名称命中需关联母体记录并标注盐类规则"
+  },
+  "statistics": {
+    "total_records": 140,
+    "precursor_records": 45,
+    "explosive_precursor_records": 95,
+    "cas_keys": 110,
+    "name_keys": 127,
+    "alias_keys": 154
+  },
+  "records": [
+    {
+      "record_id": "explosive-1-01",
+      "category": "1 酸类",
+      "item_no": "1.1",
+      "name": "硝酸",
+      "aliases": [],
+      "cas_no": [
+        "7697-37-2"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性液体，类别3",
+      "source_row": "3",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-1-02",
+      "category": "1 酸类",
+      "item_no": "1.2",
+      "name": "发烟硝酸",
+      "aliases": [],
+      "cas_no": [
+        "52583-42-3"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性液体，类别1",
+      "source_row": "4",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-1-03a",
+      "category": "1 酸类",
+      "item_no": "1.3",
+      "name": "高氯酸",
+      "aliases": [
+        "过氯酸"
+      ],
+      "cas_no": [
+        "7601-90-3"
+      ],
+      "scope_condition": "浓度>72%",
+      "hazard_classification": "氧化性液体，类别1",
+      "source_row": "5",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-1-03b",
+      "category": "1 酸类",
+      "item_no": "1.3",
+      "name": "高氯酸",
+      "aliases": [
+        "过氯酸"
+      ],
+      "cas_no": [
+        "7601-90-3"
+      ],
+      "scope_condition": "浓度50%～72%",
+      "hazard_classification": "氧化性液体，类别1",
+      "source_row": "6",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-1-03c",
+      "category": "1 酸类",
+      "item_no": "1.3",
+      "name": "高氯酸",
+      "aliases": [
+        "过氯酸"
+      ],
+      "cas_no": [
+        "7601-90-3"
+      ],
+      "scope_condition": "浓度≤50%",
+      "hazard_classification": "氧化性液体，类别2",
+      "source_row": "7",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-2-01",
+      "category": "2 硝酸盐类",
+      "item_no": "2.1",
+      "name": "硝酸钠",
+      "aliases": [],
+      "cas_no": [
+        "7631-99-4"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "9",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-02",
+      "category": "2 硝酸盐类",
+      "item_no": "2.2",
+      "name": "硝酸钾",
+      "aliases": [],
+      "cas_no": [
+        "7757-79-1"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "10",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-03",
+      "category": "2 硝酸盐类",
+      "item_no": "2.3",
+      "name": "硝酸铯",
+      "aliases": [],
+      "cas_no": [
+        "7789-18-6"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "11",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-04",
+      "category": "2 硝酸盐类",
+      "item_no": "2.4",
+      "name": "硝酸镁",
+      "aliases": [],
+      "cas_no": [
+        "10377-60-3"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "12",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-05",
+      "category": "2 硝酸盐类",
+      "item_no": "2.5",
+      "name": "硝酸钙",
+      "aliases": [],
+      "cas_no": [
+        "10124-37-5"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "13",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-06",
+      "category": "2 硝酸盐类",
+      "item_no": "2.6",
+      "name": "硝酸锶",
+      "aliases": [],
+      "cas_no": [
+        "10042-76-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "14",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-07",
+      "category": "2 硝酸盐类",
+      "item_no": "2.7",
+      "name": "硝酸钡",
+      "aliases": [],
+      "cas_no": [
+        "10022-31-8"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "15",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-08",
+      "category": "2 硝酸盐类",
+      "item_no": "2.8",
+      "name": "硝酸镍",
+      "aliases": [
+        "二硝酸镍"
+      ],
+      "cas_no": [
+        "13138-45-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "16",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-09",
+      "category": "2 硝酸盐类",
+      "item_no": "2.9",
+      "name": "硝酸银",
+      "aliases": [],
+      "cas_no": [
+        "7761-88-8"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "17",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-10",
+      "category": "2 硝酸盐类",
+      "item_no": "2.10",
+      "name": "硝酸锌",
+      "aliases": [],
+      "cas_no": [
+        "7779-88-6"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "18",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-2-11",
+      "category": "2 硝酸盐类",
+      "item_no": "2.11",
+      "name": "硝酸铅",
+      "aliases": [],
+      "cas_no": [
+        "10099-74-8"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "19",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-3-01a",
+      "category": "3 氯酸盐类",
+      "item_no": "3.1",
+      "name": "氯酸钠",
+      "aliases": [],
+      "cas_no": [
+        "7775-09-9"
+      ],
+      "scope_condition": "固体",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "21",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-3-01b",
+      "category": "3 氯酸盐类",
+      "item_no": "3.1",
+      "name": "氯酸钠溶液",
+      "aliases": [],
+      "cas_no": [
+        "7775-09-9"
+      ],
+      "scope_condition": "溶液",
+      "hazard_classification": "氧化性液体，类别3*",
+      "source_row": "22",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-3-02a",
+      "category": "3 氯酸盐类",
+      "item_no": "3.2",
+      "name": "氯酸钾",
+      "aliases": [],
+      "cas_no": [
+        "3811-04-9"
+      ],
+      "scope_condition": "固体",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "23",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-3-02b",
+      "category": "3 氯酸盐类",
+      "item_no": "3.2",
+      "name": "氯酸钾溶液",
+      "aliases": [],
+      "cas_no": [
+        "3811-04-9"
+      ],
+      "scope_condition": "溶液",
+      "hazard_classification": "氧化性液体，类别3*",
+      "source_row": "24",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-3-03",
+      "category": "3 氯酸盐类",
+      "item_no": "3.3",
+      "name": "氯酸铵",
+      "aliases": [],
+      "cas_no": [
+        "10192-29-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "爆炸物，不稳定爆炸物",
+      "source_row": "25",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-4-01",
+      "category": "4 高氯酸盐类",
+      "item_no": "4.1",
+      "name": "高氯酸锂",
+      "aliases": [
+        "过氯酸锂"
+      ],
+      "cas_no": [
+        "7791-03-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "27",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-4-02",
+      "category": "4 高氯酸盐类",
+      "item_no": "4.2",
+      "name": "高氯酸钠",
+      "aliases": [
+        "过氯酸钠"
+      ],
+      "cas_no": [
+        "7601-89-0"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "28",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-4-03",
+      "category": "4 高氯酸盐类",
+      "item_no": "4.3",
+      "name": "高氯酸钾",
+      "aliases": [
+        "过氯酸钾"
+      ],
+      "cas_no": [
+        "7778-74-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "29",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-4-04",
+      "category": "4 高氯酸盐类",
+      "item_no": "4.4",
+      "name": "高氯酸铵",
+      "aliases": [
+        "过氯酸铵"
+      ],
+      "cas_no": [
+        "7790-98-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "爆炸物，1.1项；氧化性固体，类别1",
+      "source_row": "30",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-5-01",
+      "category": "5 重铬酸盐类",
+      "item_no": "5.1",
+      "name": "重铬酸锂",
+      "aliases": [],
+      "cas_no": [
+        "13843-81-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "32",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-5-02",
+      "category": "5 重铬酸盐类",
+      "item_no": "5.2",
+      "name": "重铬酸钠",
+      "aliases": [
+        "红矾钠"
+      ],
+      "cas_no": [
+        "10588-01-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "33",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-5-03",
+      "category": "5 重铬酸盐类",
+      "item_no": "5.3",
+      "name": "重铬酸钾",
+      "aliases": [
+        "红矾钾"
+      ],
+      "cas_no": [
+        "7778-50-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "34",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-5-04",
+      "category": "5 重铬酸盐类",
+      "item_no": "5.4",
+      "name": "重铬酸铵",
+      "aliases": [
+        "红矾铵"
+      ],
+      "cas_no": [
+        "7789-09-5"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2*",
+      "source_row": "35",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-01a",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.1",
+      "name": "过氧化氢溶液",
+      "aliases": [
+        "双氧水"
+      ],
+      "cas_no": [
+        "7722-84-1"
+      ],
+      "scope_condition": "含量≥60%",
+      "hazard_classification": "氧化性液体，类别1",
+      "source_row": "37",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-6-01b",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.1",
+      "name": "过氧化氢溶液",
+      "aliases": [
+        "双氧水"
+      ],
+      "cas_no": [
+        "7722-84-1"
+      ],
+      "scope_condition": "20%≤含量<60%",
+      "hazard_classification": "氧化性液体，类别2",
+      "source_row": "37",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-6-01c",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.1",
+      "name": "过氧化氢溶液",
+      "aliases": [
+        "双氧水"
+      ],
+      "cas_no": [
+        "7722-84-1"
+      ],
+      "scope_condition": "8%<含量<20%",
+      "hazard_classification": "氧化性液体，类别3",
+      "source_row": "37",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-6-02",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.2",
+      "name": "过氧化锂",
+      "aliases": [
+        "二氧化锂"
+      ],
+      "cas_no": [
+        "12031-80-0"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "38",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-03",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.3",
+      "name": "过氧化钠",
+      "aliases": [
+        "双氧化钠",
+        "二氧化钠"
+      ],
+      "cas_no": [
+        "1313-60-6"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "39",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-04",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.4",
+      "name": "过氧化钾",
+      "aliases": [
+        "二氧化钾"
+      ],
+      "cas_no": [
+        "17014-71-0"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "40",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-05",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.5",
+      "name": "过氧化镁",
+      "aliases": [
+        "二氧化镁"
+      ],
+      "cas_no": [
+        "1335-26-8"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性液体，类别2",
+      "source_row": "41",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-06",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.6",
+      "name": "过氧化钙",
+      "aliases": [
+        "二氧化钙"
+      ],
+      "cas_no": [
+        "1305-79-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "42",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-07",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.7",
+      "name": "过氧化锶",
+      "aliases": [
+        "二氧化锶"
+      ],
+      "cas_no": [
+        "1314-18-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "43",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-08",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.8",
+      "name": "过氧化钡",
+      "aliases": [
+        "二氧化钡"
+      ],
+      "cas_no": [
+        "1304-29-6"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "44",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-09",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.9",
+      "name": "过氧化锌",
+      "aliases": [
+        "二氧化锌"
+      ],
+      "cas_no": [
+        "1314-22-3"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "45",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-10",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.10",
+      "name": "过氧化脲",
+      "aliases": [
+        "过氧化氢尿素",
+        "过氧化氢脲"
+      ],
+      "cas_no": [
+        "124-43-6"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "46",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-11a",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.11",
+      "name": "过乙酸",
+      "aliases": [
+        "过醋酸",
+        "过氧乙酸",
+        "乙酰过氧化氢"
+      ],
+      "cas_no": [
+        "79-21-0"
+      ],
+      "scope_condition": "含量≤16%，含水≥39%，含乙酸≥15%，含过氧化氢≤24%，含有稳定剂",
+      "hazard_classification": "有机过氧化物，F型",
+      "source_row": "47",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-6-11b",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.11",
+      "name": "过乙酸",
+      "aliases": [
+        "过醋酸",
+        "过氧乙酸",
+        "乙酰过氧化氢"
+      ],
+      "cas_no": [
+        "79-21-0"
+      ],
+      "scope_condition": "含量≤43%，含水≥5%，含乙酸≥35%，含过氧化氢≤6%，含有稳定剂",
+      "hazard_classification": "易燃液体，类别3；有机过氧化物，D型",
+      "source_row": "48",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-6-12",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.12",
+      "name": "过氧化二异丙苯",
+      "aliases": [
+        "二枯基过氧化物",
+        "硫化剂DCP"
+      ],
+      "cas_no": [
+        "80-43-3"
+      ],
+      "scope_condition": "52%<含量≤100%",
+      "hazard_classification": "有机过氧化物，F型",
+      "source_row": "49",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-6-13",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.13",
+      "name": "过氧化氢苯甲酰",
+      "aliases": [
+        "过苯甲酸"
+      ],
+      "cas_no": [
+        "93-59-4"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "有机过氧化物，C型",
+      "source_row": "50",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-14",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.14",
+      "name": "超氧化钠",
+      "aliases": [],
+      "cas_no": [
+        "12034-12-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "51",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-6-15",
+      "category": "6 过氧化物和超氧化物类",
+      "item_no": "6.15",
+      "name": "超氧化钾",
+      "aliases": [],
+      "cas_no": [
+        "12030-88-5"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别1",
+      "source_row": "52",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-01",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.1",
+      "name": "锂",
+      "aliases": [
+        "金属锂"
+      ],
+      "cas_no": [
+        "7439-93-2"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "54",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-02",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.2",
+      "name": "钠",
+      "aliases": [
+        "金属钠"
+      ],
+      "cas_no": [
+        "7440-23-5"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "55",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-03",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.3",
+      "name": "钾",
+      "aliases": [
+        "金属钾"
+      ],
+      "cas_no": [
+        "7440-09-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "56",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-04a",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.4",
+      "name": "镁",
+      "aliases": [
+        "金属镁"
+      ],
+      "cas_no": [
+        "7439-95-4"
+      ],
+      "scope_condition": "粉末",
+      "hazard_classification": "自热物质和混合物，类别1；遇水放出易燃气体的物质和混合物，类别2",
+      "source_row": "57",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-7-04b",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.4",
+      "name": "镁",
+      "aliases": [
+        "金属镁"
+      ],
+      "cas_no": [
+        "7439-95-4"
+      ],
+      "scope_condition": "丸状、旋屑或带状",
+      "hazard_classification": "易燃固体，类别2",
+      "source_row": "57",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-7-05",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.5",
+      "name": "镁铝粉",
+      "aliases": [
+        "镁铝合金粉"
+      ],
+      "cas_no": [],
+      "scope_condition": "粉末状镁铝合金",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别2；自热物质和混合物，类别1",
+      "source_row": "58",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-7-06a",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.6",
+      "name": "铝粉",
+      "aliases": [
+        "金属铝粉"
+      ],
+      "cas_no": [
+        "7429-90-5"
+      ],
+      "scope_condition": "有涂层",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "59",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-7-06b",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.6",
+      "name": "铝粉",
+      "aliases": [
+        "金属铝粉"
+      ],
+      "cas_no": [
+        "7429-90-5"
+      ],
+      "scope_condition": "无涂层",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别2",
+      "source_row": "59",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-7-07a",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.7",
+      "name": "硅铝",
+      "aliases": [
+        "硅铝合金"
+      ],
+      "cas_no": [
+        "57485-31-1"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别3",
+      "source_row": "60",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-07b",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.7",
+      "name": "硅铝粉",
+      "aliases": [
+        "硅铝合金粉"
+      ],
+      "cas_no": [
+        "57485-31-1"
+      ],
+      "scope_condition": "粉末",
+      "hazard_classification": "",
+      "source_row": "61",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-7-08",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.8",
+      "name": "硫磺",
+      "aliases": [
+        "硫"
+      ],
+      "cas_no": [
+        "7704-34-9"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "易燃固体，类别2",
+      "source_row": "62",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-09a",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.9",
+      "name": "锌尘",
+      "aliases": [],
+      "cas_no": [
+        "7440-66-6"
+      ],
+      "scope_condition": "尘状",
+      "hazard_classification": "自热物质和混合物，类别1；遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "63",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-09b",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.9",
+      "name": "锌粉",
+      "aliases": [],
+      "cas_no": [
+        "7440-66-6"
+      ],
+      "scope_condition": "粉状",
+      "hazard_classification": "自热物质和混合物，类别1；遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "64",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-09c",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.9",
+      "name": "锌灰",
+      "aliases": [],
+      "cas_no": [
+        "7440-66-6"
+      ],
+      "scope_condition": "灰状",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别3",
+      "source_row": "65",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-10a",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.10",
+      "name": "金属锆",
+      "aliases": [
+        "锆"
+      ],
+      "cas_no": [
+        "7440-67-7"
+      ],
+      "scope_condition": "非粉末形态",
+      "hazard_classification": "易燃固体，类别2",
+      "source_row": "66",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-10b",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.10",
+      "name": "金属锆粉",
+      "aliases": [
+        "锆粉"
+      ],
+      "cas_no": [
+        "7440-67-7"
+      ],
+      "scope_condition": "粉末",
+      "hazard_classification": "自燃固体，类别1；遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "67",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-11",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.11",
+      "name": "六亚甲基四胺",
+      "aliases": [
+        "六甲撑四胺",
+        "乌洛托品"
+      ],
+      "cas_no": [
+        "100-97-0"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "易燃固体，类别2",
+      "source_row": "68",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-12",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.12",
+      "name": "1,2-乙二胺",
+      "aliases": [
+        "1,2-二氨基乙烷",
+        "乙撑二胺"
+      ],
+      "cas_no": [
+        "107-15-3"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "易燃液体，类别3",
+      "source_row": "69",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-13a",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.13",
+      "name": "一甲胺",
+      "aliases": [
+        "氨基甲烷",
+        "甲胺"
+      ],
+      "cas_no": [
+        "74-89-5"
+      ],
+      "scope_condition": "无水",
+      "hazard_classification": "易燃气体，类别1",
+      "source_row": "70",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-13b",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.13",
+      "name": "一甲胺溶液",
+      "aliases": [
+        "氨基甲烷溶液",
+        "甲胺溶液"
+      ],
+      "cas_no": [
+        "74-89-5"
+      ],
+      "scope_condition": "溶液",
+      "hazard_classification": "易燃液体，类别1",
+      "source_row": "71",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-14",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.14",
+      "name": "硼氢化锂",
+      "aliases": [
+        "氢硼化锂"
+      ],
+      "cas_no": [
+        "16949-15-8"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "72",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-15",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.15",
+      "name": "硼氢化钠",
+      "aliases": [
+        "氢硼化钠"
+      ],
+      "cas_no": [
+        "16940-66-2"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "73",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-7-16",
+      "category": "7 易燃物还原剂类",
+      "item_no": "7.16",
+      "name": "硼氢化钾",
+      "aliases": [
+        "氢硼化钾"
+      ],
+      "cas_no": [
+        "13762-51-1"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "遇水放出易燃气体的物质和混合物，类别1",
+      "source_row": "74",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-8-01",
+      "category": "8 硝基化合物类",
+      "item_no": "8.1",
+      "name": "硝基甲烷",
+      "aliases": [],
+      "cas_no": [
+        "75-52-5"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "易燃液体，类别3",
+      "source_row": "76",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-8-02",
+      "category": "8 硝基化合物类",
+      "item_no": "8.2",
+      "name": "硝基乙烷",
+      "aliases": [],
+      "cas_no": [
+        "79-24-3"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "易燃液体，类别3",
+      "source_row": "77",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-8-03",
+      "category": "8 硝基化合物类",
+      "item_no": "8.3",
+      "name": "2,4-二硝基甲苯",
+      "aliases": [],
+      "cas_no": [
+        "121-14-2"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "",
+      "source_row": "78",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-8-04",
+      "category": "8 硝基化合物类",
+      "item_no": "8.4",
+      "name": "2,6-二硝基甲苯",
+      "aliases": [],
+      "cas_no": [
+        "606-20-2"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "",
+      "source_row": "79",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-8-05",
+      "category": "8 硝基化合物类",
+      "item_no": "8.5",
+      "name": "1,5-二硝基萘",
+      "aliases": [],
+      "cas_no": [
+        "605-71-0"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "80",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-8-06",
+      "category": "8 硝基化合物类",
+      "item_no": "8.6",
+      "name": "1,8-二硝基萘",
+      "aliases": [],
+      "cas_no": [
+        "602-38-0"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "81",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-8-07a",
+      "category": "8 硝基化合物类",
+      "item_no": "8.7",
+      "name": "二硝基苯酚",
+      "aliases": [],
+      "cas_no": [
+        "25550-58-7"
+      ],
+      "scope_condition": "干的或含水<15%",
+      "hazard_classification": "爆炸物，1.1项",
+      "source_row": "82",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-8-07b",
+      "category": "8 硝基化合物类",
+      "item_no": "8.7",
+      "name": "二硝基苯酚溶液",
+      "aliases": [],
+      "cas_no": [
+        "25550-58-7"
+      ],
+      "scope_condition": "溶液",
+      "hazard_classification": "",
+      "source_row": "83",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-8-08",
+      "category": "8 硝基化合物类",
+      "item_no": "8.8",
+      "name": "2,4-二硝基苯酚",
+      "aliases": [
+        "1-羟基-2,4-二硝基苯"
+      ],
+      "cas_no": [
+        "51-28-5"
+      ],
+      "scope_condition": "含水≥15%",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "84",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-8-09",
+      "category": "8 硝基化合物类",
+      "item_no": "8.9",
+      "name": "2,5-二硝基苯酚",
+      "aliases": [],
+      "cas_no": [
+        "329-71-5"
+      ],
+      "scope_condition": "含水≥15%",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "85",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-8-10",
+      "category": "8 硝基化合物类",
+      "item_no": "8.10",
+      "name": "2,6-二硝基苯酚",
+      "aliases": [],
+      "cas_no": [
+        "573-56-8"
+      ],
+      "scope_condition": "含水≥15%",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "86",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-8-11",
+      "category": "8 硝基化合物类",
+      "item_no": "8.11",
+      "name": "2,4-二硝基苯酚钠",
+      "aliases": [],
+      "cas_no": [
+        "1011-73-0"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "爆炸物，1.3项",
+      "source_row": "87",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-9-01a",
+      "category": "9 其他",
+      "item_no": "9.1",
+      "name": "硝化纤维素",
+      "aliases": [
+        "硝化棉"
+      ],
+      "cas_no": [
+        "9004-70-0"
+      ],
+      "scope_condition": "干的或含水或乙醇<25%",
+      "hazard_classification": "爆炸物，1.1项",
+      "source_row": "89",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-9-01b",
+      "category": "9 其他",
+      "item_no": "9.1",
+      "name": "硝化纤维素",
+      "aliases": [
+        "硝化棉"
+      ],
+      "cas_no": [
+        "9004-70-0"
+      ],
+      "scope_condition": "含氮≤12.6%，含乙醇≥25%",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "90",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-9-01c",
+      "category": "9 其他",
+      "item_no": "9.1",
+      "name": "硝化纤维素",
+      "aliases": [
+        "硝化棉"
+      ],
+      "cas_no": [
+        "9004-70-0"
+      ],
+      "scope_condition": "含氮≤12.6%",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "91",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-9-01d",
+      "category": "9 其他",
+      "item_no": "9.1",
+      "name": "硝化纤维素",
+      "aliases": [
+        "硝化棉"
+      ],
+      "cas_no": [
+        "9004-70-0"
+      ],
+      "scope_condition": "含水≥25%",
+      "hazard_classification": "易燃固体，类别1",
+      "source_row": "92",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-9-01e",
+      "category": "9 其他",
+      "item_no": "9.1",
+      "name": "硝化纤维素",
+      "aliases": [
+        "硝化棉"
+      ],
+      "cas_no": [
+        "9004-70-0"
+      ],
+      "scope_condition": "含乙醇≥25%",
+      "hazard_classification": "爆炸物，1.3项",
+      "source_row": "93",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-9-01f",
+      "category": "9 其他",
+      "item_no": "9.1",
+      "name": "硝化纤维素",
+      "aliases": [
+        "硝化棉"
+      ],
+      "cas_no": [
+        "9004-70-0"
+      ],
+      "scope_condition": "未改型的，或增塑的，含增塑剂<18%",
+      "hazard_classification": "爆炸物，1.1项",
+      "source_row": "94",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-9-01g",
+      "category": "9 其他",
+      "item_no": "9.1",
+      "name": "硝化纤维素溶液",
+      "aliases": [
+        "硝化棉溶液"
+      ],
+      "cas_no": [
+        "9004-70-0"
+      ],
+      "scope_condition": "含氮量≤12.6%，含硝化纤维素≤55%",
+      "hazard_classification": "易燃液体，类别2",
+      "source_row": "95",
+      "list_type": "易制爆",
+      "requires_condition_check": true
+    },
+    {
+      "record_id": "explosive-9-02",
+      "category": "9 其他",
+      "item_no": "9.2",
+      "name": "4,6-二硝基-2-氨基苯酚钠",
+      "aliases": [
+        "苦氨酸钠"
+      ],
+      "cas_no": [
+        "831-52-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "爆炸物，1.3项",
+      "source_row": "96",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-9-03",
+      "category": "9 其他",
+      "item_no": "9.3",
+      "name": "高锰酸钾",
+      "aliases": [
+        "过锰酸钾",
+        "灰锰氧"
+      ],
+      "cas_no": [
+        "7722-64-7"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "97",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-9-04",
+      "category": "9 其他",
+      "item_no": "9.4",
+      "name": "高锰酸钠",
+      "aliases": [
+        "过锰酸钠"
+      ],
+      "cas_no": [
+        "10101-50-5"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别2",
+      "source_row": "98",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-9-05",
+      "category": "9 其他",
+      "item_no": "9.5",
+      "name": "硝酸胍",
+      "aliases": [
+        "硝酸亚氨脲"
+      ],
+      "cas_no": [
+        "506-93-4"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "氧化性固体，类别3",
+      "source_row": "99",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-9-06",
+      "category": "9 其他",
+      "item_no": "9.6",
+      "name": "水合肼",
+      "aliases": [
+        "水合联氨"
+      ],
+      "cas_no": [
+        "10217-52-4"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "",
+      "source_row": "100",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "explosive-9-07",
+      "category": "9 其他",
+      "item_no": "9.7",
+      "name": "2,2-双（羟甲基）1,3-丙二醇",
+      "aliases": [
+        "季戊四醇",
+        "四羟甲基甲烷"
+      ],
+      "cas_no": [
+        "115-77-5"
+      ],
+      "scope_condition": "",
+      "hazard_classification": "",
+      "source_row": "101",
+      "list_type": "易制爆",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-01",
+      "category": "第一类",
+      "item_no": "1",
+      "name": "1-苯基-2-丙酮",
+      "aliases": [
+        "苯基丙酮",
+        "苄基甲基酮",
+        "P2P",
+        "BMK"
+      ],
+      "cas_no": [
+        "103-79-7"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第1项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-02",
+      "category": "第一类",
+      "item_no": "2",
+      "name": "3,4-亚甲基二氧苯基-2-丙酮",
+      "aliases": [
+        "3,4-亚甲二氧基苯基-2-丙酮",
+        "胡椒基甲基酮",
+        "PMK",
+        "MDP2P"
+      ],
+      "cas_no": [
+        "4676-39-5"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第2项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-03",
+      "category": "第一类",
+      "item_no": "3",
+      "name": "胡椒醛",
+      "aliases": [
+        "3,4-亚甲二氧基苯甲醛",
+        "洋茉莉醛",
+        "Piperonal"
+      ],
+      "cas_no": [
+        "120-57-0"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第3项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-04",
+      "category": "第一类",
+      "item_no": "4",
+      "name": "黄樟素",
+      "aliases": [
+        "黄樟脑",
+        "Safrole"
+      ],
+      "cas_no": [
+        "94-59-7"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第4项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-05",
+      "category": "第一类",
+      "item_no": "5",
+      "name": "黄樟油",
+      "aliases": [
+        "Sassafras oil"
+      ],
+      "cas_no": [],
+      "scope_condition": "天然混合物，附件未限定组成或唯一 CAS",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第5项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-06",
+      "category": "第一类",
+      "item_no": "6",
+      "name": "异黄樟素",
+      "aliases": [
+        "Isosafrole"
+      ],
+      "cas_no": [
+        "120-58-1"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第6项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-07",
+      "category": "第一类",
+      "item_no": "7",
+      "name": "N-乙酰邻氨基苯酸",
+      "aliases": [
+        "N-乙酰邻氨基苯甲酸",
+        "N-乙酰氨基苯甲酸",
+        "N-Acetylanthranilic acid"
+      ],
+      "cas_no": [
+        "89-52-1"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第7项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-08",
+      "category": "第一类",
+      "item_no": "8",
+      "name": "邻氨基苯甲酸",
+      "aliases": [
+        "2-氨基苯甲酸",
+        "Anthranilic acid"
+      ],
+      "cas_no": [
+        "118-92-3"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第8项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-09",
+      "category": "第一类",
+      "item_no": "9",
+      "name": "麦角酸",
+      "aliases": [
+        "Lysergic acid"
+      ],
+      "cas_no": [
+        "82-58-6"
+      ],
+      "scope_condition": "原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第9项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-10",
+      "category": "第一类",
+      "item_no": "10",
+      "name": "麦角胺",
+      "aliases": [
+        "Ergotamine"
+      ],
+      "cas_no": [
+        "113-15-5"
+      ],
+      "scope_condition": "原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第10项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-11",
+      "category": "第一类",
+      "item_no": "11",
+      "name": "麦角新碱",
+      "aliases": [
+        "麦角新碱碱基",
+        "Ergometrine",
+        "Ergonovine"
+      ],
+      "cas_no": [
+        "60-79-7"
+      ],
+      "scope_condition": "原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第11项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12a",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "麻黄素",
+      "aliases": [
+        "Ephedrine"
+      ],
+      "cas_no": [
+        "299-42-3"
+      ],
+      "scope_condition": "第12项列举的麻黄素类物质；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12b",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "伪麻黄素",
+      "aliases": [
+        "Pseudoephedrine"
+      ],
+      "cas_no": [
+        "90-82-4"
+      ],
+      "scope_condition": "第12项列举的麻黄素类物质；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12c",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "消旋麻黄素",
+      "aliases": [
+        "DL-麻黄素",
+        "DL-Ephedrine"
+      ],
+      "cas_no": [
+        "90-81-3"
+      ],
+      "scope_condition": "第12项列举的麻黄素类物质；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12d",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "去甲麻黄素",
+      "aliases": [
+        "苯丙醇胺",
+        "Norephedrine",
+        "Phenylpropanolamine"
+      ],
+      "cas_no": [
+        "14838-15-4"
+      ],
+      "scope_condition": "第12项列举的麻黄素类物质；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12e",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "甲基麻黄素",
+      "aliases": [
+        "N-甲基麻黄素",
+        "Methylephedrine"
+      ],
+      "cas_no": [
+        "552-79-4"
+      ],
+      "scope_condition": "第12项列举的麻黄素类物质；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12f",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "麻黄浸膏",
+      "aliases": [],
+      "cas_no": [],
+      "scope_condition": "植物浸膏，无唯一 CAS；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12g",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "麻黄浸膏粉",
+      "aliases": [],
+      "cas_no": [],
+      "scope_condition": "植物浸膏粉，无唯一 CAS；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-12h",
+      "category": "第一类",
+      "item_no": "12",
+      "name": "其他麻黄素类物质",
+      "aliases": [
+        "麻黄素类物质"
+      ],
+      "cas_no": [],
+      "scope_condition": "“等麻黄素类物质”为开放范围，需按实际化学身份人工核实；原料药及其单方制剂",
+      "salt_rule": true,
+      "drug_precursor": true,
+      "source_locator": "附表 第一类 第12项 星号条目",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-13",
+      "category": "第一类",
+      "item_no": "13",
+      "name": "N-苯乙基-4-哌啶酮",
+      "aliases": [
+        "1-苯乙基-4-哌啶酮",
+        "NPP"
+      ],
+      "cas_no": [
+        "39742-60-4"
+      ],
+      "scope_condition": "2017年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第13项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-14",
+      "category": "第一类",
+      "item_no": "14",
+      "name": "4-苯胺基-N-苯乙基哌啶",
+      "aliases": [
+        "ANPP",
+        "4-Anilino-N-phenethylpiperidine"
+      ],
+      "cas_no": [
+        "21409-26-7"
+      ],
+      "scope_condition": "2017年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第14项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-15",
+      "category": "第一类",
+      "item_no": "15",
+      "name": "N-甲基-1-苯基-1-氯-2-丙胺",
+      "aliases": [
+        "1-氯-N-甲基-1-苯基-2-丙胺"
+      ],
+      "cas_no": [],
+      "scope_condition": "附件未指明游离碱或具体盐型，不以盐酸盐 CAS 代替",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第15项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-16",
+      "category": "第一类",
+      "item_no": "16",
+      "name": "羟亚胺",
+      "aliases": [
+        "Hydroxyimine"
+      ],
+      "cas_no": [],
+      "scope_condition": "附件未指明游离碱或具体盐型，不以盐酸盐 CAS 代替；2008年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第16项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-17",
+      "category": "第一类",
+      "item_no": "17",
+      "name": "1-苯基-2-溴-1-丙酮",
+      "aliases": [
+        "2-溴代苯丙酮",
+        "α-溴代苯丙酮"
+      ],
+      "cas_no": [
+        "2114-00-3"
+      ],
+      "scope_condition": "2014年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第17项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-18",
+      "category": "第一类",
+      "item_no": "18",
+      "name": "3-氧-2-苯基丁腈",
+      "aliases": [
+        "2-苯基-3-氧代丁腈"
+      ],
+      "cas_no": [
+        "4468-48-8"
+      ],
+      "scope_condition": "2014年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第18项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-1-19",
+      "category": "第一类",
+      "item_no": "19",
+      "name": "邻氯苯基环戊酮",
+      "aliases": [
+        "2-氯苯基环戊基酮",
+        "2-Chlorophenyl cyclopentyl ketone"
+      ],
+      "cas_no": [
+        "6740-85-8"
+      ],
+      "scope_condition": "2012年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第一类 第19项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-01",
+      "category": "第二类",
+      "item_no": "1",
+      "name": "苯乙酸",
+      "aliases": [
+        "苯醋酸",
+        "Phenylacetic acid"
+      ],
+      "cas_no": [
+        "103-82-2"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第1项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-02",
+      "category": "第二类",
+      "item_no": "2",
+      "name": "醋酸酐",
+      "aliases": [
+        "乙酸酐",
+        "Acetic anhydride"
+      ],
+      "cas_no": [
+        "108-24-7"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第2项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-03",
+      "category": "第二类",
+      "item_no": "3",
+      "name": "三氯甲烷",
+      "aliases": [
+        "氯仿",
+        "Chloroform"
+      ],
+      "cas_no": [
+        "67-66-3"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第3项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-04",
+      "category": "第二类",
+      "item_no": "4",
+      "name": "乙醚",
+      "aliases": [
+        "二乙醚",
+        "二乙基醚",
+        "Diethyl ether"
+      ],
+      "cas_no": [
+        "60-29-7"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第4项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-05",
+      "category": "第二类",
+      "item_no": "5",
+      "name": "哌啶",
+      "aliases": [
+        "六氢吡啶",
+        "Piperidine"
+      ],
+      "cas_no": [
+        "110-89-4"
+      ],
+      "scope_condition": "",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第5项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-06",
+      "category": "第二类",
+      "item_no": "6",
+      "name": "1-苯基-1-丙酮",
+      "aliases": [
+        "苯丙酮",
+        "苯乙酮甲基衍生物",
+        "Propiophenone"
+      ],
+      "cas_no": [
+        "93-55-0"
+      ],
+      "scope_condition": "2017年新增；不得与第一类“1-苯基-2-丙酮”混同",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第6项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-07",
+      "category": "第二类",
+      "item_no": "7",
+      "name": "溴素",
+      "aliases": [
+        "液溴",
+        "溴",
+        "Bromine"
+      ],
+      "cas_no": [
+        "7726-95-6"
+      ],
+      "scope_condition": "2017年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第7项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-08",
+      "category": "第二类",
+      "item_no": "8",
+      "name": "α-苯乙酰乙酸甲酯",
+      "aliases": [
+        "2-苯基-3-氧代丁酸甲酯",
+        "MAPA",
+        "Methyl alpha-phenylacetoacetate"
+      ],
+      "cas_no": [
+        "16648-44-5"
+      ],
+      "scope_condition": "2021年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第8项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-09",
+      "category": "第二类",
+      "item_no": "9",
+      "name": "α-乙酰乙酰苯胺",
+      "aliases": [
+        "α-苯乙酰乙酰胺",
+        "2-苯基-3-氧代丁酰胺",
+        "APAA",
+        "Alpha-phenylacetoacetamide"
+      ],
+      "cas_no": [
+        "4433-77-6"
+      ],
+      "scope_condition": "2021年新增；不是 CAS 102-01-2 的乙酰乙酰苯胺",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第9项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-10",
+      "category": "第二类",
+      "item_no": "10",
+      "name": "3,4-亚甲基二氧苯基-2-丙酮缩水甘油酸",
+      "aliases": [
+        "PMK缩水甘油酸",
+        "PMK glycidic acid"
+      ],
+      "cas_no": [
+        "2167189-50-4"
+      ],
+      "scope_condition": "2021年新增",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第10项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-2-11",
+      "category": "第二类",
+      "item_no": "11",
+      "name": "3,4-亚甲基二氧苯基-2-丙酮缩水甘油酯",
+      "aliases": [
+        "PMK缩水甘油酯",
+        "PMK glycidate"
+      ],
+      "cas_no": [],
+      "scope_condition": "2021年新增；目录名称未限定具体酯型，不以某一种酯的 CAS 代表全部范围",
+      "salt_rule": true,
+      "drug_precursor": false,
+      "source_locator": "附表 第二类 第11项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-01",
+      "category": "第三类",
+      "item_no": "1",
+      "name": "甲苯",
+      "aliases": [
+        "甲基苯",
+        "Toluene"
+      ],
+      "cas_no": [
+        "108-88-3"
+      ],
+      "scope_condition": "",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第1项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-02",
+      "category": "第三类",
+      "item_no": "2",
+      "name": "丙酮",
+      "aliases": [
+        "二甲基酮",
+        "Acetone"
+      ],
+      "cas_no": [
+        "67-64-1"
+      ],
+      "scope_condition": "",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第2项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-03",
+      "category": "第三类",
+      "item_no": "3",
+      "name": "甲基乙基酮",
+      "aliases": [
+        "2-丁酮",
+        "丁酮",
+        "MEK",
+        "Methyl ethyl ketone"
+      ],
+      "cas_no": [
+        "78-93-3"
+      ],
+      "scope_condition": "",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第3项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-04",
+      "category": "第三类",
+      "item_no": "4",
+      "name": "高锰酸钾",
+      "aliases": [
+        "过锰酸钾",
+        "灰锰氧",
+        "Potassium permanganate"
+      ],
+      "cas_no": [
+        "7722-64-7"
+      ],
+      "scope_condition": "",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第4项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-05",
+      "category": "第三类",
+      "item_no": "5",
+      "name": "硫酸",
+      "aliases": [
+        "Sulfuric acid"
+      ],
+      "cas_no": [
+        "7664-93-9"
+      ],
+      "scope_condition": "",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第5项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-06",
+      "category": "第三类",
+      "item_no": "6",
+      "name": "盐酸",
+      "aliases": [
+        "氢氯酸",
+        "氯化氢水溶液",
+        "Hydrochloric acid"
+      ],
+      "cas_no": [
+        "7647-01-0"
+      ],
+      "scope_condition": "",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第6项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-07",
+      "category": "第三类",
+      "item_no": "7",
+      "name": "苯乙腈",
+      "aliases": [
+        "苄基氰",
+        "苄氰",
+        "Phenylacetonitrile",
+        "Benzyl cyanide"
+      ],
+      "cas_no": [
+        "140-29-4"
+      ],
+      "scope_condition": "2021年新增",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第7项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    },
+    {
+      "record_id": "precursor-3-08",
+      "category": "第三类",
+      "item_no": "8",
+      "name": "γ-丁内酯",
+      "aliases": [
+        "4-羟基丁酸内酯",
+        "GBL",
+        "Gamma-butyrolactone"
+      ],
+      "cas_no": [
+        "96-48-0"
+      ],
+      "scope_condition": "2021年新增",
+      "salt_rule": false,
+      "drug_precursor": false,
+      "source_locator": "附表 第三类 第8项",
+      "list_type": "易制毒",
+      "requires_condition_check": false
+    }
+  ],
+  "search_index": {
+    "by_cas": {
+      "100-97-0": [
+        "explosive-7-11"
+      ],
+      "10022-31-8": [
+        "explosive-2-07"
+      ],
+      "10042-76-9": [
+        "explosive-2-06"
+      ],
+      "10099-74-8": [
+        "explosive-2-11"
+      ],
+      "10101-50-5": [
+        "explosive-9-04"
+      ],
+      "1011-73-0": [
+        "explosive-8-11"
+      ],
+      "10124-37-5": [
+        "explosive-2-05"
+      ],
+      "10192-29-7": [
+        "explosive-3-03"
+      ],
+      "10217-52-4": [
+        "explosive-9-06"
+      ],
+      "103-79-7": [
+        "precursor-1-01"
+      ],
+      "103-82-2": [
+        "precursor-2-01"
+      ],
+      "10377-60-3": [
+        "explosive-2-04"
+      ],
+      "10588-01-9": [
+        "explosive-5-02"
+      ],
+      "107-15-3": [
+        "explosive-7-12"
+      ],
+      "108-24-7": [
+        "precursor-2-02"
+      ],
+      "108-88-3": [
+        "precursor-3-01"
+      ],
+      "110-89-4": [
+        "precursor-2-05"
+      ],
+      "113-15-5": [
+        "precursor-1-10"
+      ],
+      "115-77-5": [
+        "explosive-9-07"
+      ],
+      "118-92-3": [
+        "precursor-1-08"
+      ],
+      "120-57-0": [
+        "precursor-1-03"
+      ],
+      "120-58-1": [
+        "precursor-1-06"
+      ],
+      "12030-88-5": [
+        "explosive-6-15"
+      ],
+      "12031-80-0": [
+        "explosive-6-02"
+      ],
+      "12034-12-7": [
+        "explosive-6-14"
+      ],
+      "121-14-2": [
+        "explosive-8-03"
+      ],
+      "124-43-6": [
+        "explosive-6-10"
+      ],
+      "1304-29-6": [
+        "explosive-6-08"
+      ],
+      "1305-79-9": [
+        "explosive-6-06"
+      ],
+      "1313-60-6": [
+        "explosive-6-03"
+      ],
+      "13138-45-9": [
+        "explosive-2-08"
+      ],
+      "1314-18-7": [
+        "explosive-6-07"
+      ],
+      "1314-22-3": [
+        "explosive-6-09"
+      ],
+      "1335-26-8": [
+        "explosive-6-05"
+      ],
+      "13762-51-1": [
+        "explosive-7-16"
+      ],
+      "13843-81-7": [
+        "explosive-5-01"
+      ],
+      "140-29-4": [
+        "precursor-3-07"
+      ],
+      "14838-15-4": [
+        "precursor-1-12d"
+      ],
+      "16648-44-5": [
+        "precursor-2-08"
+      ],
+      "16940-66-2": [
+        "explosive-7-15"
+      ],
+      "16949-15-8": [
+        "explosive-7-14"
+      ],
+      "17014-71-0": [
+        "explosive-6-04"
+      ],
+      "2114-00-3": [
+        "precursor-1-17"
+      ],
+      "21409-26-7": [
+        "precursor-1-14"
+      ],
+      "2167189-50-4": [
+        "precursor-2-10"
+      ],
+      "25550-58-7": [
+        "explosive-8-07a",
+        "explosive-8-07b"
+      ],
+      "299-42-3": [
+        "precursor-1-12a"
+      ],
+      "329-71-5": [
+        "explosive-8-09"
+      ],
+      "3811-04-9": [
+        "explosive-3-02a",
+        "explosive-3-02b"
+      ],
+      "39742-60-4": [
+        "precursor-1-13"
+      ],
+      "4433-77-6": [
+        "precursor-2-09"
+      ],
+      "4468-48-8": [
+        "precursor-1-18"
+      ],
+      "4676-39-5": [
+        "precursor-1-02"
+      ],
+      "506-93-4": [
+        "explosive-9-05"
+      ],
+      "51-28-5": [
+        "explosive-8-08"
+      ],
+      "52583-42-3": [
+        "explosive-1-02"
+      ],
+      "552-79-4": [
+        "precursor-1-12e"
+      ],
+      "573-56-8": [
+        "explosive-8-10"
+      ],
+      "57485-31-1": [
+        "explosive-7-07a",
+        "explosive-7-07b"
+      ],
+      "60-29-7": [
+        "precursor-2-04"
+      ],
+      "60-79-7": [
+        "precursor-1-11"
+      ],
+      "602-38-0": [
+        "explosive-8-06"
+      ],
+      "605-71-0": [
+        "explosive-8-05"
+      ],
+      "606-20-2": [
+        "explosive-8-04"
+      ],
+      "67-64-1": [
+        "precursor-3-02"
+      ],
+      "67-66-3": [
+        "precursor-2-03"
+      ],
+      "6740-85-8": [
+        "precursor-1-19"
+      ],
+      "74-89-5": [
+        "explosive-7-13a",
+        "explosive-7-13b"
+      ],
+      "7429-90-5": [
+        "explosive-7-06a",
+        "explosive-7-06b"
+      ],
+      "7439-93-2": [
+        "explosive-7-01"
+      ],
+      "7439-95-4": [
+        "explosive-7-04a",
+        "explosive-7-04b"
+      ],
+      "7440-09-7": [
+        "explosive-7-03"
+      ],
+      "7440-23-5": [
+        "explosive-7-02"
+      ],
+      "7440-66-6": [
+        "explosive-7-09a",
+        "explosive-7-09b",
+        "explosive-7-09c"
+      ],
+      "7440-67-7": [
+        "explosive-7-10a",
+        "explosive-7-10b"
+      ],
+      "75-52-5": [
+        "explosive-8-01"
+      ],
+      "7601-89-0": [
+        "explosive-4-02"
+      ],
+      "7601-90-3": [
+        "explosive-1-03a",
+        "explosive-1-03b",
+        "explosive-1-03c"
+      ],
+      "7631-99-4": [
+        "explosive-2-01"
+      ],
+      "7647-01-0": [
+        "precursor-3-06"
+      ],
+      "7664-93-9": [
+        "precursor-3-05"
+      ],
+      "7697-37-2": [
+        "explosive-1-01"
+      ],
+      "7704-34-9": [
+        "explosive-7-08"
+      ],
+      "7722-64-7": [
+        "explosive-9-03",
+        "precursor-3-04"
+      ],
+      "7722-84-1": [
+        "explosive-6-01a",
+        "explosive-6-01b",
+        "explosive-6-01c"
+      ],
+      "7726-95-6": [
+        "precursor-2-07"
+      ],
+      "7757-79-1": [
+        "explosive-2-02"
+      ],
+      "7761-88-8": [
+        "explosive-2-09"
+      ],
+      "7775-09-9": [
+        "explosive-3-01a",
+        "explosive-3-01b"
+      ],
+      "7778-50-9": [
+        "explosive-5-03"
+      ],
+      "7778-74-7": [
+        "explosive-4-03"
+      ],
+      "7779-88-6": [
+        "explosive-2-10"
+      ],
+      "7789-09-5": [
+        "explosive-5-04"
+      ],
+      "7789-18-6": [
+        "explosive-2-03"
+      ],
+      "7790-98-9": [
+        "explosive-4-04"
+      ],
+      "7791-03-9": [
+        "explosive-4-01"
+      ],
+      "78-93-3": [
+        "precursor-3-03"
+      ],
+      "79-21-0": [
+        "explosive-6-11a",
+        "explosive-6-11b"
+      ],
+      "79-24-3": [
+        "explosive-8-02"
+      ],
+      "80-43-3": [
+        "explosive-6-12"
+      ],
+      "82-58-6": [
+        "precursor-1-09"
+      ],
+      "831-52-7": [
+        "explosive-9-02"
+      ],
+      "89-52-1": [
+        "precursor-1-07"
+      ],
+      "90-81-3": [
+        "precursor-1-12c"
+      ],
+      "90-82-4": [
+        "precursor-1-12b"
+      ],
+      "9004-70-0": [
+        "explosive-9-01a",
+        "explosive-9-01b",
+        "explosive-9-01c",
+        "explosive-9-01d",
+        "explosive-9-01e",
+        "explosive-9-01f",
+        "explosive-9-01g"
+      ],
+      "93-55-0": [
+        "precursor-2-06"
+      ],
+      "93-59-4": [
+        "explosive-6-13"
+      ],
+      "94-59-7": [
+        "precursor-1-04"
+      ],
+      "96-48-0": [
+        "precursor-3-08"
+      ]
+    },
+    "by_name": {
+      "12乙二胺": [
+        "explosive-7-12"
+      ],
+      "15二硝基萘": [
+        "explosive-8-05"
+      ],
+      "18二硝基萘": [
+        "explosive-8-06"
+      ],
+      "1苯基1丙酮": [
+        "precursor-2-06"
+      ],
+      "1苯基2丙酮": [
+        "precursor-1-01"
+      ],
+      "1苯基2溴1丙酮": [
+        "precursor-1-17"
+      ],
+      "22双羟甲基13丙二醇": [
+        "explosive-9-07"
+      ],
+      "24二硝基甲苯": [
+        "explosive-8-03"
+      ],
+      "24二硝基苯酚": [
+        "explosive-8-08"
+      ],
+      "24二硝基苯酚钠": [
+        "explosive-8-11"
+      ],
+      "25二硝基苯酚": [
+        "explosive-8-09"
+      ],
+      "26二硝基甲苯": [
+        "explosive-8-04"
+      ],
+      "26二硝基苯酚": [
+        "explosive-8-10"
+      ],
+      "34亚甲基二氧苯基2丙酮": [
+        "precursor-1-02"
+      ],
+      "34亚甲基二氧苯基2丙酮缩水甘油酯": [
+        "precursor-2-11"
+      ],
+      "34亚甲基二氧苯基2丙酮缩水甘油酸": [
+        "precursor-2-10"
+      ],
+      "3氧2苯基丁腈": [
+        "precursor-1-18"
+      ],
+      "46二硝基2氨基苯酚钠": [
+        "explosive-9-02"
+      ],
+      "4苯胺基n苯乙基哌啶": [
+        "precursor-1-14"
+      ],
+      "alpha乙酰乙酰苯胺": [
+        "precursor-2-09"
+      ],
+      "alpha苯乙酰乙酸甲酯": [
+        "precursor-2-08"
+      ],
+      "gamma丁内酯": [
+        "precursor-3-08"
+      ],
+      "n乙酰邻氨基苯酸": [
+        "precursor-1-07"
+      ],
+      "n甲基1苯基1氯2丙胺": [
+        "precursor-1-15"
+      ],
+      "n苯乙基4哌啶酮": [
+        "precursor-1-13"
+      ],
+      "一甲胺": [
+        "explosive-7-13a"
+      ],
+      "一甲胺溶液": [
+        "explosive-7-13b"
+      ],
+      "三氯甲烷": [
+        "precursor-2-03"
+      ],
+      "丙酮": [
+        "precursor-3-02"
+      ],
+      "乙醚": [
+        "precursor-2-04"
+      ],
+      "二硝基苯酚": [
+        "explosive-8-07a"
+      ],
+      "二硝基苯酚溶液": [
+        "explosive-8-07b"
+      ],
+      "伪麻黄素": [
+        "precursor-1-12b"
+      ],
+      "六亚甲基四胺": [
+        "explosive-7-11"
+      ],
+      "其他麻黄素类物质": [
+        "precursor-1-12h"
+      ],
+      "去甲麻黄素": [
+        "precursor-1-12d"
+      ],
+      "发烟硝酸": [
+        "explosive-1-02"
+      ],
+      "哌啶": [
+        "precursor-2-05"
+      ],
+      "异黄樟素": [
+        "precursor-1-06"
+      ],
+      "氯酸钠": [
+        "explosive-3-01a"
+      ],
+      "氯酸钠溶液": [
+        "explosive-3-01b"
+      ],
+      "氯酸钾": [
+        "explosive-3-02a"
+      ],
+      "氯酸钾溶液": [
+        "explosive-3-02b"
+      ],
+      "氯酸铵": [
+        "explosive-3-03"
+      ],
+      "水合肼": [
+        "explosive-9-06"
+      ],
+      "消旋麻黄素": [
+        "precursor-1-12c"
+      ],
+      "溴素": [
+        "precursor-2-07"
+      ],
+      "甲基乙基酮": [
+        "precursor-3-03"
+      ],
+      "甲基麻黄素": [
+        "precursor-1-12e"
+      ],
+      "甲苯": [
+        "precursor-3-01"
+      ],
+      "盐酸": [
+        "precursor-3-06"
+      ],
+      "硅铝": [
+        "explosive-7-07a"
+      ],
+      "硅铝粉": [
+        "explosive-7-07b"
+      ],
+      "硝化纤维素": [
+        "explosive-9-01a",
+        "explosive-9-01b",
+        "explosive-9-01c",
+        "explosive-9-01d",
+        "explosive-9-01e",
+        "explosive-9-01f"
+      ],
+      "硝化纤维素溶液": [
+        "explosive-9-01g"
+      ],
+      "硝基乙烷": [
+        "explosive-8-02"
+      ],
+      "硝基甲烷": [
+        "explosive-8-01"
+      ],
+      "硝酸": [
+        "explosive-1-01"
+      ],
+      "硝酸胍": [
+        "explosive-9-05"
+      ],
+      "硝酸钙": [
+        "explosive-2-05"
+      ],
+      "硝酸钠": [
+        "explosive-2-01"
+      ],
+      "硝酸钡": [
+        "explosive-2-07"
+      ],
+      "硝酸钾": [
+        "explosive-2-02"
+      ],
+      "硝酸铅": [
+        "explosive-2-11"
+      ],
+      "硝酸铯": [
+        "explosive-2-03"
+      ],
+      "硝酸银": [
+        "explosive-2-09"
+      ],
+      "硝酸锌": [
+        "explosive-2-10"
+      ],
+      "硝酸锶": [
+        "explosive-2-06"
+      ],
+      "硝酸镁": [
+        "explosive-2-04"
+      ],
+      "硝酸镍": [
+        "explosive-2-08"
+      ],
+      "硫磺": [
+        "explosive-7-08"
+      ],
+      "硫酸": [
+        "precursor-3-05"
+      ],
+      "硼氢化钠": [
+        "explosive-7-15"
+      ],
+      "硼氢化钾": [
+        "explosive-7-16"
+      ],
+      "硼氢化锂": [
+        "explosive-7-14"
+      ],
+      "羟亚胺": [
+        "precursor-1-16"
+      ],
+      "胡椒醛": [
+        "precursor-1-03"
+      ],
+      "苯乙腈": [
+        "precursor-3-07"
+      ],
+      "苯乙酸": [
+        "precursor-2-01"
+      ],
+      "超氧化钠": [
+        "explosive-6-14"
+      ],
+      "超氧化钾": [
+        "explosive-6-15"
+      ],
+      "过乙酸": [
+        "explosive-6-11a",
+        "explosive-6-11b"
+      ],
+      "过氧化二异丙苯": [
+        "explosive-6-12"
+      ],
+      "过氧化氢溶液": [
+        "explosive-6-01a",
+        "explosive-6-01b",
+        "explosive-6-01c"
+      ],
+      "过氧化氢苯甲酰": [
+        "explosive-6-13"
+      ],
+      "过氧化脲": [
+        "explosive-6-10"
+      ],
+      "过氧化钙": [
+        "explosive-6-06"
+      ],
+      "过氧化钠": [
+        "explosive-6-03"
+      ],
+      "过氧化钡": [
+        "explosive-6-08"
+      ],
+      "过氧化钾": [
+        "explosive-6-04"
+      ],
+      "过氧化锂": [
+        "explosive-6-02"
+      ],
+      "过氧化锌": [
+        "explosive-6-09"
+      ],
+      "过氧化锶": [
+        "explosive-6-07"
+      ],
+      "过氧化镁": [
+        "explosive-6-05"
+      ],
+      "邻氨基苯甲酸": [
+        "precursor-1-08"
+      ],
+      "邻氯苯基环戊酮": [
+        "precursor-1-19"
+      ],
+      "醋酸酐": [
+        "precursor-2-02"
+      ],
+      "重铬酸钠": [
+        "explosive-5-02"
+      ],
+      "重铬酸钾": [
+        "explosive-5-03"
+      ],
+      "重铬酸铵": [
+        "explosive-5-04"
+      ],
+      "重铬酸锂": [
+        "explosive-5-01"
+      ],
+      "金属锆": [
+        "explosive-7-10a"
+      ],
+      "金属锆粉": [
+        "explosive-7-10b"
+      ],
+      "钠": [
+        "explosive-7-02"
+      ],
+      "钾": [
+        "explosive-7-03"
+      ],
+      "铝粉": [
+        "explosive-7-06a",
+        "explosive-7-06b"
+      ],
+      "锂": [
+        "explosive-7-01"
+      ],
+      "锌尘": [
+        "explosive-7-09a"
+      ],
+      "锌灰": [
+        "explosive-7-09c"
+      ],
+      "锌粉": [
+        "explosive-7-09b"
+      ],
+      "镁": [
+        "explosive-7-04a",
+        "explosive-7-04b"
+      ],
+      "镁铝粉": [
+        "explosive-7-05"
+      ],
+      "高氯酸": [
+        "explosive-1-03a",
+        "explosive-1-03b",
+        "explosive-1-03c"
+      ],
+      "高氯酸钠": [
+        "explosive-4-02"
+      ],
+      "高氯酸钾": [
+        "explosive-4-03"
+      ],
+      "高氯酸铵": [
+        "explosive-4-04"
+      ],
+      "高氯酸锂": [
+        "explosive-4-01"
+      ],
+      "高锰酸钠": [
+        "explosive-9-04"
+      ],
+      "高锰酸钾": [
+        "explosive-9-03",
+        "precursor-3-04"
+      ],
+      "麦角新碱": [
+        "precursor-1-11"
+      ],
+      "麦角胺": [
+        "precursor-1-10"
+      ],
+      "麦角酸": [
+        "precursor-1-09"
+      ],
+      "麻黄浸膏": [
+        "precursor-1-12f"
+      ],
+      "麻黄浸膏粉": [
+        "precursor-1-12g"
+      ],
+      "麻黄素": [
+        "precursor-1-12a"
+      ],
+      "黄樟油": [
+        "precursor-1-05"
+      ],
+      "黄樟素": [
+        "precursor-1-04"
+      ]
+    },
+    "by_alias": {
+      "12二氨基乙烷": [
+        "explosive-7-12"
+      ],
+      "1氯n甲基1苯基2丙胺": [
+        "precursor-1-15"
+      ],
+      "1羟基24二硝基苯": [
+        "explosive-8-08"
+      ],
+      "1苯乙基4哌啶酮": [
+        "precursor-1-13"
+      ],
+      "2chlorophenylcyclopentylketone": [
+        "precursor-1-19"
+      ],
+      "2丁酮": [
+        "precursor-3-03"
+      ],
+      "2氨基苯甲酸": [
+        "precursor-1-08"
+      ],
+      "2氯苯基环戊基酮": [
+        "precursor-1-19"
+      ],
+      "2溴代苯丙酮": [
+        "precursor-1-17"
+      ],
+      "2苯基3氧代丁腈": [
+        "precursor-1-18"
+      ],
+      "2苯基3氧代丁酰胺": [
+        "precursor-2-09"
+      ],
+      "2苯基3氧代丁酸甲酯": [
+        "precursor-2-08"
+      ],
+      "34亚甲二氧基苯基2丙酮": [
+        "precursor-1-02"
+      ],
+      "34亚甲二氧基苯甲醛": [
+        "precursor-1-03"
+      ],
+      "4anilinonphenethylpiperidine": [
+        "precursor-1-14"
+      ],
+      "4羟基丁酸内酯": [
+        "precursor-3-08"
+      ],
+      "aceticanhydride": [
+        "precursor-2-02"
+      ],
+      "acetone": [
+        "precursor-3-02"
+      ],
+      "alphaphenylacetoacetamide": [
+        "precursor-2-09"
+      ],
+      "alpha溴代苯丙酮": [
+        "precursor-1-17"
+      ],
+      "alpha苯乙酰乙酰胺": [
+        "precursor-2-09"
+      ],
+      "anpp": [
+        "precursor-1-14"
+      ],
+      "anthranilicacid": [
+        "precursor-1-08"
+      ],
+      "apaa": [
+        "precursor-2-09"
+      ],
+      "benzylcyanide": [
+        "precursor-3-07"
+      ],
+      "bmk": [
+        "precursor-1-01"
+      ],
+      "bromine": [
+        "precursor-2-07"
+      ],
+      "chloroform": [
+        "precursor-2-03"
+      ],
+      "diethylether": [
+        "precursor-2-04"
+      ],
+      "dlephedrine": [
+        "precursor-1-12c"
+      ],
+      "dl麻黄素": [
+        "precursor-1-12c"
+      ],
+      "ephedrine": [
+        "precursor-1-12a"
+      ],
+      "ergometrine": [
+        "precursor-1-11"
+      ],
+      "ergonovine": [
+        "precursor-1-11"
+      ],
+      "ergotamine": [
+        "precursor-1-10"
+      ],
+      "gammabutyrolactone": [
+        "precursor-3-08"
+      ],
+      "gbl": [
+        "precursor-3-08"
+      ],
+      "hydrochloricacid": [
+        "precursor-3-06"
+      ],
+      "hydroxyimine": [
+        "precursor-1-16"
+      ],
+      "isosafrole": [
+        "precursor-1-06"
+      ],
+      "lysergicacid": [
+        "precursor-1-09"
+      ],
+      "mapa": [
+        "precursor-2-08"
+      ],
+      "mdp2p": [
+        "precursor-1-02"
+      ],
+      "mek": [
+        "precursor-3-03"
+      ],
+      "methylalphaphenylacetoacetate": [
+        "precursor-2-08"
+      ],
+      "methylephedrine": [
+        "precursor-1-12e"
+      ],
+      "methylethylketone": [
+        "precursor-3-03"
+      ],
+      "nacetylanthranilicacid": [
+        "precursor-1-07"
+      ],
+      "norephedrine": [
+        "precursor-1-12d"
+      ],
+      "npp": [
+        "precursor-1-13"
+      ],
+      "n乙酰氨基苯甲酸": [
+        "precursor-1-07"
+      ],
+      "n乙酰邻氨基苯甲酸": [
+        "precursor-1-07"
+      ],
+      "n甲基麻黄素": [
+        "precursor-1-12e"
+      ],
+      "p2p": [
+        "precursor-1-01"
+      ],
+      "phenylaceticacid": [
+        "precursor-2-01"
+      ],
+      "phenylacetonitrile": [
+        "precursor-3-07"
+      ],
+      "phenylpropanolamine": [
+        "precursor-1-12d"
+      ],
+      "piperidine": [
+        "precursor-2-05"
+      ],
+      "piperonal": [
+        "precursor-1-03"
+      ],
+      "pmk": [
+        "precursor-1-02"
+      ],
+      "pmkglycidate": [
+        "precursor-2-11"
+      ],
+      "pmkglycidicacid": [
+        "precursor-2-10"
+      ],
+      "pmk缩水甘油酯": [
+        "precursor-2-11"
+      ],
+      "pmk缩水甘油酸": [
+        "precursor-2-10"
+      ],
+      "potassiumpermanganate": [
+        "precursor-3-04"
+      ],
+      "propiophenone": [
+        "precursor-2-06"
+      ],
+      "pseudoephedrine": [
+        "precursor-1-12b"
+      ],
+      "safrole": [
+        "precursor-1-04"
+      ],
+      "sassafrasoil": [
+        "precursor-1-05"
+      ],
+      "sulfuricacid": [
+        "precursor-3-05"
+      ],
+      "toluene": [
+        "precursor-3-01"
+      ],
+      "丁酮": [
+        "precursor-3-03"
+      ],
+      "乌洛托品": [
+        "explosive-7-11"
+      ],
+      "乙撑二胺": [
+        "explosive-7-12"
+      ],
+      "乙酰过氧化氢": [
+        "explosive-6-11a",
+        "explosive-6-11b"
+      ],
+      "乙酸酐": [
+        "precursor-2-02"
+      ],
+      "二乙基醚": [
+        "precursor-2-04"
+      ],
+      "二乙醚": [
+        "precursor-2-04"
+      ],
+      "二枯基过氧化物": [
+        "explosive-6-12"
+      ],
+      "二氧化钙": [
+        "explosive-6-06"
+      ],
+      "二氧化钠": [
+        "explosive-6-03"
+      ],
+      "二氧化钡": [
+        "explosive-6-08"
+      ],
+      "二氧化钾": [
+        "explosive-6-04"
+      ],
+      "二氧化锂": [
+        "explosive-6-02"
+      ],
+      "二氧化锌": [
+        "explosive-6-09"
+      ],
+      "二氧化锶": [
+        "explosive-6-07"
+      ],
+      "二氧化镁": [
+        "explosive-6-05"
+      ],
+      "二甲基酮": [
+        "precursor-3-02"
+      ],
+      "二硝酸镍": [
+        "explosive-2-08"
+      ],
+      "六氢吡啶": [
+        "precursor-2-05"
+      ],
+      "六甲撑四胺": [
+        "explosive-7-11"
+      ],
+      "双氧化钠": [
+        "explosive-6-03"
+      ],
+      "双氧水": [
+        "explosive-6-01a",
+        "explosive-6-01b",
+        "explosive-6-01c"
+      ],
+      "四羟甲基甲烷": [
+        "explosive-9-07"
+      ],
+      "季戊四醇": [
+        "explosive-9-07"
+      ],
+      "氢氯酸": [
+        "precursor-3-06"
+      ],
+      "氢硼化钠": [
+        "explosive-7-15"
+      ],
+      "氢硼化钾": [
+        "explosive-7-16"
+      ],
+      "氢硼化锂": [
+        "explosive-7-14"
+      ],
+      "氨基甲烷": [
+        "explosive-7-13a"
+      ],
+      "氨基甲烷溶液": [
+        "explosive-7-13b"
+      ],
+      "氯仿": [
+        "precursor-2-03"
+      ],
+      "氯化氢水溶液": [
+        "precursor-3-06"
+      ],
+      "水合联氨": [
+        "explosive-9-06"
+      ],
+      "洋茉莉醛": [
+        "precursor-1-03"
+      ],
+      "液溴": [
+        "precursor-2-07"
+      ],
+      "溴": [
+        "precursor-2-07"
+      ],
+      "灰锰氧": [
+        "explosive-9-03",
+        "precursor-3-04"
+      ],
+      "甲基苯": [
+        "precursor-3-01"
+      ],
+      "甲胺": [
+        "explosive-7-13a"
+      ],
+      "甲胺溶液": [
+        "explosive-7-13b"
+      ],
+      "硅铝合金": [
+        "explosive-7-07a"
+      ],
+      "硅铝合金粉": [
+        "explosive-7-07b"
+      ],
+      "硝化棉": [
+        "explosive-9-01a",
+        "explosive-9-01b",
+        "explosive-9-01c",
+        "explosive-9-01d",
+        "explosive-9-01e",
+        "explosive-9-01f"
+      ],
+      "硝化棉溶液": [
+        "explosive-9-01g"
+      ],
+      "硝酸亚氨脲": [
+        "explosive-9-05"
+      ],
+      "硫": [
+        "explosive-7-08"
+      ],
+      "硫化剂dcp": [
+        "explosive-6-12"
+      ],
+      "红矾钠": [
+        "explosive-5-02"
+      ],
+      "红矾钾": [
+        "explosive-5-03"
+      ],
+      "红矾铵": [
+        "explosive-5-04"
+      ],
+      "胡椒基甲基酮": [
+        "precursor-1-02"
+      ],
+      "苄基氰": [
+        "precursor-3-07"
+      ],
+      "苄基甲基酮": [
+        "precursor-1-01"
+      ],
+      "苄氰": [
+        "precursor-3-07"
+      ],
+      "苦氨酸钠": [
+        "explosive-9-02"
+      ],
+      "苯丙酮": [
+        "precursor-2-06"
+      ],
+      "苯丙醇胺": [
+        "precursor-1-12d"
+      ],
+      "苯乙酮甲基衍生物": [
+        "precursor-2-06"
+      ],
+      "苯基丙酮": [
+        "precursor-1-01"
+      ],
+      "苯醋酸": [
+        "precursor-2-01"
+      ],
+      "过氧乙酸": [
+        "explosive-6-11a",
+        "explosive-6-11b"
+      ],
+      "过氧化氢尿素": [
+        "explosive-6-10"
+      ],
+      "过氧化氢脲": [
+        "explosive-6-10"
+      ],
+      "过氯酸": [
+        "explosive-1-03a",
+        "explosive-1-03b",
+        "explosive-1-03c"
+      ],
+      "过氯酸钠": [
+        "explosive-4-02"
+      ],
+      "过氯酸钾": [
+        "explosive-4-03"
+      ],
+      "过氯酸铵": [
+        "explosive-4-04"
+      ],
+      "过氯酸锂": [
+        "explosive-4-01"
+      ],
+      "过苯甲酸": [
+        "explosive-6-13"
+      ],
+      "过醋酸": [
+        "explosive-6-11a",
+        "explosive-6-11b"
+      ],
+      "过锰酸钠": [
+        "explosive-9-04"
+      ],
+      "过锰酸钾": [
+        "explosive-9-03",
+        "precursor-3-04"
+      ],
+      "金属钠": [
+        "explosive-7-02"
+      ],
+      "金属钾": [
+        "explosive-7-03"
+      ],
+      "金属铝粉": [
+        "explosive-7-06a",
+        "explosive-7-06b"
+      ],
+      "金属锂": [
+        "explosive-7-01"
+      ],
+      "金属镁": [
+        "explosive-7-04a",
+        "explosive-7-04b"
+      ],
+      "锆": [
+        "explosive-7-10a"
+      ],
+      "锆粉": [
+        "explosive-7-10b"
+      ],
+      "镁铝合金粉": [
+        "explosive-7-05"
+      ],
+      "麦角新碱碱基": [
+        "precursor-1-11"
+      ],
+      "麻黄素类物质": [
+        "precursor-1-12h"
+      ],
+      "黄樟脑": [
+        "precursor-1-04"
+      ]
+    }
+  }
+}

@@ -33,11 +33,16 @@ def extract_section(raw_text, section_title):
     return None
 
 
-def find_root(zf):
-    names = zf.namelist()
-    if not names:
-        raise ValueError("zip 为空")
-    return names[0].split("/")[0]
+def find_entries_path(zf):
+    candidates = [
+        name for name in zf.namelist()
+        if name == "entries.jsonl" or name.endswith("/entries.jsonl")
+    ]
+    if not candidates:
+        raise ValueError("zip 中未找到 entries.jsonl")
+    if len(candidates) > 1:
+        raise ValueError(f"zip 中存在多个 entries.jsonl: {candidates}")
+    return candidates[0]
 
 
 def add_to_index(index, key, row_no):
@@ -46,15 +51,20 @@ def add_to_index(index, key, row_no):
     key = str(key).strip()
     if not key:
         return
-    index.setdefault(key, []).append(row_no)
+    rows = index.setdefault(key, [])
+    if row_no not in rows:
+        rows.append(row_no)
 
 
 def build(zip_path, out_dir):
-    zf = zipfile.ZipFile(zip_path)
-    root = find_root(zf)
+    if not os.path.isfile(zip_path):
+        raise FileNotFoundError(f"输入文件不存在: {zip_path}")
+    os.makedirs(out_dir, exist_ok=True)
 
     jsonl_path = os.path.join(out_dir, "sds-handbook-reference.jsonl")
     index_path = os.path.join(out_dir, "sds-handbook-index.json")
+    jsonl_tmp = jsonl_path + ".tmp"
+    index_tmp = index_path + ".tmp"
 
     index = {
         "cas_no": {},
@@ -67,56 +77,69 @@ def build(zip_path, out_dir):
     n_total = 0
     n_written = 0
     n_verified = 0
-    with zf.open(root + "/entries.jsonl") as f, open(jsonl_path, "w", encoding="utf-8") as out:
-        for row_no, line in enumerate(f):
-            n_total += 1
-            e = json.loads(line)
-            sections = {}
-            for title in SECTIONS_TO_KEEP:
-                text = extract_section(e.get("raw_text", ""), title)
-                if text:
-                    sections[title] = text
+    try:
+        with zipfile.ZipFile(zip_path) as zf:
+            entries_path = find_entries_path(zf)
+            with zf.open(entries_path) as source, open(jsonl_tmp, "w", encoding="utf-8") as out:
+                for line in source:
+                    n_total += 1
+                    e = json.loads(line)
+                    sections = {}
+                    for title in SECTIONS_TO_KEEP:
+                        text = extract_section(e.get("raw_text", ""), title)
+                        if text:
+                            sections[title] = text
 
-            verified = e.get("identity_verification", {}).get("status") == "verified"
-            if verified:
-                n_verified += 1
+                    verified = e.get("identity_verification", {}).get("status") == "verified"
+                    if verified:
+                        n_verified += 1
 
-            rec = {
-                "entry_id": e["entry_id"],
-                "name_zh": e.get("name_zh"),
-                "aliases_zh": e.get("aliases_zh", []),
-                "name_en": e.get("name_en"),
-                "aliases_en": e.get("aliases_en", []),
-                "cas_no": e.get("cas_no", []),
-                "formula_raw": e.get("formula_raw"),
-                "source_page": [e.get("source_page_start"), e.get("source_page_end")],
-                "verified": verified,
-                "physchem_text": sections.get("理化特性", ""),
-                "toxicology_text": sections.get("毒理学信息", ""),
-                "firefighting_text": sections.get("消防措施", ""),
-            }
-            out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-            n_written += 1
+                    rec = {
+                        "entry_id": e["entry_id"],
+                        "name_zh": e.get("name_zh"),
+                        "aliases_zh": e.get("aliases_zh", []),
+                        "name_en": e.get("name_en"),
+                        "aliases_en": e.get("aliases_en", []),
+                        "cas_no": e.get("cas_no", []),
+                        "formula_raw": e.get("formula_raw"),
+                        "source_page": [e.get("source_page_start"), e.get("source_page_end")],
+                        "verified": verified,
+                        "physchem_text": sections.get("理化特性", ""),
+                        "toxicology_text": sections.get("毒理学信息", ""),
+                        "firefighting_text": sections.get("消防措施", ""),
+                    }
+                    output_row = n_written
+                    out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                    n_written += 1
 
-            for cas in e.get("cas_no", []) or []:
-                add_to_index(index["cas_no"], cas, row_no)
-            add_to_index(index["name_zh"], e.get("name_zh"), row_no)
-            add_to_index(index["name_en"], e.get("name_en"), row_no)
-            for a in e.get("aliases_zh", []) or []:
-                add_to_index(index["aliases_zh"], a, row_no)
-            for a in e.get("aliases_en", []) or []:
-                add_to_index(index["aliases_en"], a, row_no)
+                    for cas in e.get("cas_no", []) or []:
+                        add_to_index(index["cas_no"], cas, output_row)
+                    add_to_index(index["name_zh"], e.get("name_zh"), output_row)
+                    add_to_index(index["name_en"], e.get("name_en"), output_row)
+                    for alias in e.get("aliases_zh", []) or []:
+                        add_to_index(index["aliases_zh"], alias, output_row)
+                    for alias in e.get("aliases_en", []) or []:
+                        add_to_index(index["aliases_en"], alias, output_row)
 
-    index_doc = {
-        "schema_version": "1.0",
-        "source": "危险化学品安全技术全书·通用卷第三版SDS（MinerU RAG提取，理化特性+毒理学信息+消防措施三节原文）",
-        "row_file": "sds-handbook-reference.jsonl",
-        "lookup_order": ["cas_no", "name_zh", "aliases_zh", "name_en", "aliases_en"],
-        "note": "index值为 sds-handbook-reference.jsonl 中的0-based行号（可重复出现，需逐行取用）。verified=false 的条目为规则+OCR自动识别，未经人工核实，命中后须在批注中注明可信度。",
-        "index": index,
-    }
-    with open(index_path, "w", encoding="utf-8") as f:
-        json.dump(index_doc, f, ensure_ascii=False, indent=1)
+        index_doc = {
+            "schema_version": "1.0",
+            "source": "危险化学品安全技术全书·通用卷第三版SDS（MinerU RAG提取，理化特性+毒理学信息+消防措施三节原文）",
+            "row_file": "sds-handbook-reference.jsonl",
+            "lookup_order": ["cas_no", "name_zh", "aliases_zh", "name_en", "aliases_en"],
+            "note": "index值为 sds-handbook-reference.jsonl 中的0-based行号（可重复出现，需逐行取用）。verified=false 的条目为规则+OCR自动识别，未经人工核实，命中后须在批注中注明可信度。",
+            "index": index,
+        }
+        with open(index_tmp, "w", encoding="utf-8") as f:
+            json.dump(index_doc, f, ensure_ascii=False, indent=1)
+            f.write("\n")
+
+        os.replace(jsonl_tmp, jsonl_path)
+        os.replace(index_tmp, index_path)
+    except Exception:
+        for tmp_path in (jsonl_tmp, index_tmp):
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+        raise
 
     print(f"OK: {jsonl_path}")
     print(f"OK: {index_path}")

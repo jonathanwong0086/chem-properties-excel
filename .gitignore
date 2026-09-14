@@ -24,6 +24,10 @@ Desktop.ini
 chem_tmp.xlsx
 *_tmp.xlsx
 ~$*.xlsx
+_props_b*.json
+
+# Unmaintained integration exports
+chem-properties-excel-chatflow.yml
 
 # Output (don't track generated Excel files)
 *.xlsx
