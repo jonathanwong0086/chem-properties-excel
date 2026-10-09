@@ -28,7 +28,8 @@ OUTPUT_DIR = os.path.expanduser("~/Desktop")
 
 FIELDS = [
     ("序号", "id"), ("化学品名称", "name"), ("CAS号", "cas_no"),
-    ("熔点(°C)", "mp"), ("沸点(°C)", "bp"), ("闪点(°C)", "fp"),
+    ("熔点(°C)", "mp"), ("沸点(°C)", "bp"), ("自燃点(°C)", "ait"),
+    ("闪点(°C)", "fp"),
     ("密度", "density"), ("常温物态", "state"), ("火灾危险性类别", "fire"),
     ("水溶性", "sol"), ("密度>水？", "den_water"), ("禁用水灭火？", "water_ext"),
     ("爆炸极限(LEL~UEL)", "explosion"), ("蒸汽>空气？", "vapor"),
@@ -61,8 +62,8 @@ EQUIPMENT_FIELDS = [
 SRC_DATA = [
     ("国际数据库", "PubChem (NCBI)", "CAS号、密度、水溶性", "https://pubchem.ncbi.nlm.nih.gov/"),
     ("国际数据库", "NIST Chemistry WebBook", "熔点、沸点、蒸气相对密度", "https://webbook.nist.gov/"),
-    ("化学品供应商", "Sigma-Aldrich / MilliporeSigma", "SDS、闪点、密度", "https://www.sigmaaldrich.com/"),
-    ("化学品数据库", "ChemicalBook", "CAS号、沸点、闪点、物态", "https://www.chemicalbook.com/"),
+    ("化学品供应商", "Sigma-Aldrich / MilliporeSigma", "SDS、闪点、自燃点、密度", "https://www.sigmaaldrich.com/"),
+    ("化学品数据库", "ChemicalBook", "CAS号、沸点、闪点、自燃点、物态", "https://www.chemicalbook.com/"),
     ("化学品数据库", "ChemSpider (RSC)", "常温物态、结构验证", "https://www.chemspider.com/"),
     ("应急响应数据库", "CAMEO Chemicals (NOAA)", "遇水反应性、灭火禁忌", "https://cameochemicals.noaa.gov/"),
     ("职业安全数据库", "NIOSH Pocket Guide (CDC)", "爆炸极限、蒸气密度", "https://www.cdc.gov/niosh/npg/"),
@@ -83,7 +84,7 @@ _INVALID_SHEET_CHARS = re.compile(r"[\\/*?:\[\]]")
 _INVALID_FILE_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 _CAS_NORMALIZER = re.compile(r"[^0-9]")
 _NAME_NORMALIZER = re.compile(r"[\s·•・,，、()（）\[\]【】_-]+")
-_GBT_KEYS = [field for _, field in FIELDS[18:24]]
+_GBT_KEYS = [field for _, field in FIELDS[19:25]]
 _GBT_REFERENCE_MISS = "本地参考未命中，需核对GB/T 42594-2023原文"
 _GBT_MISSING = {
     "", "-", "—", "未列入GB/T 42594-2023", "未列入GB/T42594-2023",
@@ -379,17 +380,17 @@ def _write_main_sheet(wb, records, project_name: str, index, styles) -> None:
             cell = ws.cell(row, column, value)
             cell.font, cell.border = styles["data_font"], styles["border"]
             cell.alignment = styles["left"] if key in left_fields else styles["center"]
-            cell.fill = fire_fill if column in (2, 3, 9) else styles["zebra"][offset % 4]
+            cell.fill = fire_fill if column in (2, 3, 10) else styles["zebra"][offset % 4]
             if isinstance(sources, Mapping):
                 _add_comment(cell, sources.get(key))
         if _gbt_is_missing(record):
-            ws.cell(row, 19, _GBT_REFERENCE_MISS)
+            ws.cell(row, 20, _GBT_REFERENCE_MISS)
             if isinstance(sources, Mapping):
-                _add_comment(ws.cell(row, 19), sources.get("gbt_toxicity"))
-            ws.merge_cells(start_row=row, start_column=19, end_row=row, end_column=24)
-            ws.cell(row, 19).alignment = styles["center"]
+                _add_comment(ws.cell(row, 20), sources.get("gbt_toxicity"))
+            ws.merge_cells(start_row=row, start_column=20, end_row=row, end_column=25)
+            ws.cell(row, 20).alignment = styles["center"]
         ws.row_dimensions[row].height = 30
-    widths = [5, 24, 16, 14, 14, 15, 18, 14, 18, 20, 11, 18, 20, 14, 22, 26, 38, 22, 18, 26, 30, 34, 30, 38, 16, 18]
+    widths = [5, 24, 16, 14, 14, 15, 15, 18, 14, 18, 20, 11, 18, 20, 14, 22, 26, 38, 22, 18, 26, 30, 34, 30, 38, 16, 18]
     for column, width in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(column)].width = width
     ws.freeze_panes = "C3"
@@ -402,7 +403,7 @@ def _write_main_sheet(wb, records, project_name: str, index, styles) -> None:
         "3. 本地职业接触限值参考库源自GBZ 2.1-2007；采用现行限值时须另行核对最新版标准。",
         "4. 危化品类别依据《危险化学品目录》(2015版)。",
         "5. 有毒气体检测目录依据《高毒物品目录》、GB/T 50493-2019附录B和HG/T 20660-2017附录A。",
-        "6. GB/T 42594-2023未命中时仅合并第19至24列；易制毒、易制爆判断保持独立。",
+        "6. GB/T 42594-2023未命中时仅合并第20至25列；易制毒、易制爆判断保持独立。",
         "7. 易制毒按《易制毒化学品管理条例》及增补目录判断；易制爆按《易制爆危险化学品名录》(2017年版)判断。",
         "8. 易制爆条目含浓度或形态条件且输入无法确认时标记为“需核实浓度/形态”。",
         "9. GB/T 42594毒性分级脚注a、b、c及其他原表注应以标准原文为准。",

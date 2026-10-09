@@ -6,7 +6,7 @@ description: >
   支持脏数据（大段工艺描述）、干净列表、或半成品输入。
   Trigger: "物性表" / "化学品数据" / "chemical properties" / "生成物性excel"
 metadata:
-  version: "3.0.0"
+  version: "3.1.0"
 allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent, AskUserQuestion]
 ---
 
@@ -113,13 +113,14 @@ allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent,
 
 对每种化学品，**第一步**先按 §2.0 查本地 `sds-handbook-reference.jsonl`；该化学品在本地库中已记载的字段直接原样采用，**不必再联网核实**。只有本地库未命中该化学品，或命中但某些字段在 `physchem_text` 中未提及/缺失时，才对**缺失的字段**通过 WebSearch + WebFetch 联网查询。
 
-以下14个字段均适用本规则（毒理数据字段见 §3.6，走同一本地库但索引位置不同）：
+以下15个字段均适用本规则（毒理数据字段见 §3.6，走同一本地库但索引位置不同）：
 
 | 字段 | 英文 | 单位 | 首选来源（本地未命中时） |
 |------|------|------|----------|
 | CAS号 | CAS Number | — | PubChem |
 | 熔点 | Melting Point | °C | NIST WebBook |
 | 沸点 | Boiling Point | °C | NIST WebBook / ChemicalBook |
+| 自燃点 | Autoignition Temperature | °C | Sigma-Aldrich SDS / ChemicalBook |
 | 闪点 | Flash Point | °C | Sigma-Aldrich SDS |
 | 密度 | Density | g/cm³ 或 g/L | PubChem |
 | 常温物态 | State at RT | 固/液/气 | ChemicalBook / SDS |
@@ -138,7 +139,7 @@ allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent,
 
 **查找方法：**
 1. 按 `sds-handbook-index.json` 的 `lookup_order`（`cas_no` → `name_zh` → `aliases_zh` → `name_en` → `aliases_en`）用CAS号/中文名/别名/英文名匹配，命中后得到 `sds-handbook-reference.jsonl` 中的行号（0-based，逐行对应一条记录）。命中多行时优先取 `cas_no` 精确匹配且 `verified=true` 的记录。
-2. 取该记录的 `physchem_text`（理化特性原文），从中**逐字段提取**表中14个字段里能确定的部分（如熔点、沸点、闪点、密度、外观/物态、水溶性等——原文怎么写就怎么摘，不得意译或换算单位造成失真，除非原文本身给出换算所需的两个量）。
+2. 取该记录的 `physchem_text`（理化特性原文），从中**逐字段提取**表中15个字段里能确定的部分（如熔点、沸点、闪点、自燃点(自燃温度)、密度、外观/物态、水溶性等——原文怎么写就怎么摘，不得意译或换算单位造成失真，除非原文本身给出换算所需的两个量）。
 3. **禁用水灭火？** 单独取该记录的 `firefighting_text`（消防措施原文），根据"灭火剂用xx"是否包含水/雾状水判定：明确用水或雾状水灭火→填"否"；灭火剂列表不含水（如仅列泡沫/干粉/二氧化碳/砂土）且未提及水→ 结合原文是否出现"用水灭火无效"等直接否定表述判定为"是"；原文未给出足够信息时不得凭空判定，转入联网查询CAMEO/SDS核实。
 4. 火灾危险性类别、危化品类别、职业接触限值这三项仍按 §3.1/§3.2/§3.3 对应的法规目录判定，`physchem_text`/`firefighting_text` 只作为物理性质/消防数据来源，不替代法规分类判定。
 5. `physchem_text`/`firefighting_text` 中未提及的字段（如未写密度，或消防措施未提供足够信息判定禁用水灭火），视为该字段本地未命中，转入联网查询（§2.5）。
@@ -147,7 +148,7 @@ allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent,
 **数据采集原则：**
 - 每个字段的来源批注必须真实反映实际查询路径（本地库 vs 具体联网来源），不得篡改或省略来源
 - 中国法规数值优先（火灾危险性、OEL、危化品类别）——这三项走法规目录，不受本地《全书》库结果影响
-- 不可燃物质的闪点/爆炸极限标注"—"
+- 不可燃物质的闪点/自燃点/爆炸极限标注"—"
 - 未知或因牌号而异的标注"因牌号而异"或"数据未公开"
 - **工艺专有中间体（无公开CAS号）：物理常数标"数据未公开"，火灾类别标"丙类(估)"或"待定"，来源注明"工艺专有中间体，无公开数据，按有机物估计"——绝不编造数值**
 
@@ -165,7 +166,7 @@ allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent,
 **Agent Prompt关键指令：**
 - 明确列出每种化学品的中文名（JSON key），要求Agent原样使用
 - 要求Agent用Write工具写入指定路径的UTF-8 JSON文件
-- 每种化学品15个字段（CAS~危化品类别 + 来源），全部字符串值
+- 每种化学品16个字段（CAS~危化品类别 + 来源），全部字符串值
 - 用"—"标记不适用项，"数据未公开"标记查不到的数据
 - Agent完成后返回"DONE bN"确认
 
@@ -182,8 +183,8 @@ allowed-tools: [Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep, Agent,
 | **PubChem** | `https://pubchem.ncbi.nlm.nih.gov/compound/<CAS号>` | 用CAS号搜；页面Sections: Chemical & Physical Properties, Solubility, Safety & Hazards |
 | **NIST Chemistry WebBook** | `https://webbook.nist.gov/cgi/cbook.cgi?ID=<CAS号>&Units=SI` | 直接用CAS号查，页面包含：Phase change data (熔沸点), Gas phase thermochemistry (蒸气密度) |
 | **ChemSpider** | `http://www.chemspider.com/Search.aspx?q=<CAS号>` | 搜索CAS号，Properties部分含物态、密度 |
-| **ChemicalBook** | `https://www.chemicalbook.com/ProductChemicalProperties_CB<编号>_EN.htm` | 搜索CAS号或中文名，首页即显示熔点/沸点/闪点/密度/物态表 |
-| **Sigma-Aldrich SDS** | `https://www.sigmaaldrich.com/` → 搜索产品 → Download SDS | SDS中Section 9: Physical & Chemical Properties (闪点/密度/物态) |
+| **ChemicalBook** | `https://www.chemicalbook.com/ProductChemicalProperties_CB<编号>_EN.htm` | 搜索CAS号或中文名，首页即显示熔点/沸点/闪点/自燃点/密度/物态表 |
+| **Sigma-Aldrich SDS** | `https://www.sigmaaldrich.com/` → 搜索产品 → Download SDS | SDS中Section 9: Physical & Chemical Properties (闪点/自燃点/密度/物态) |
 | **CAMEO Chemicals** | `https://cameochemicals.noaa.gov/chemical/<CAS号>` | Reactivity: 遇水反应性；Flammability: 爆炸极限；Health: 禁用水？ |
 | **NIOSH Pocket Guide** | `https://www.cdc.gov/niosh/npg/npgd<编号>.html` | Explosive limits (LEL/UEL)；IDLH值；Relative Density (蒸气密度MR) |
 | **FAO/WHO JMPR** | `https://www.fao.org/agriculture/crops/` | 农药原药物化及毒理数据 |
@@ -380,9 +381,9 @@ c. 其他危害包括自反应介质、自燃介质、遇水放出易燃气体�
 
 ### Sheet 1：物性数据主表
 
-**列结构（26列，含毒理数据列 + 有毒气体列 + GB/T42594 6列 + 易制毒/易制爆2列）：**
+**列结构（27列，含自燃点列 + 毒理数据列 + 有毒气体列 + GB/T42594 6列 + 易制毒/易制爆2列）：**
 ```
-序号 | 化学品名称 | CAS号 | 熔点(°C) | 沸点(°C) | 闪点(°C) | 密度 | 常温物态 | 火灾危险性类别 | 水溶性 | 密度>水？ | 禁用水灭火？ | 爆炸极限(LEL~UEL) | 蒸汽>空气？ | 职业接触限值(mg/m³) | 危化品类别 | 毒理数据(LD50/LC50) | 是否被列入有毒气体检测目录 | 毒性(GB/T42594) | 燃烧爆炸特性(GB/T42594) | 介质与金属材料相容性提示(GB/T42594) | 反应和稳定性提示(GB/T42594) | 危害提示(GB/T42594) | GHS健康和环境危害类别(GB/T42594) | 是否易制毒 | 是否易制爆
+序号 | 化学品名称 | CAS号 | 熔点(°C) | 沸点(°C) | 自燃点(°C) | 闪点(°C) | 密度 | 常温物态 | 火灾危险性类别 | 水溶性 | 密度>水？ | 禁用水灭火？ | 爆炸极限(LEL~UEL) | 蒸汽>空气？ | 职业接触限值(mg/m³) | 危化品类别 | 毒理数据(LD50/LC50) | 是否被列入有毒气体检测目录 | 毒性(GB/T42594) | 燃烧爆炸特性(GB/T42594) | 介质与金属材料相容性提示(GB/T42594) | 反应和稳定性提示(GB/T42594) | 危害提示(GB/T42594) | GHS健康和环境危害类别(GB/T42594) | 是否易制毒 | 是否易制爆
 ```
 
 **毒理数据列填写：** 严格按 §3.6，优先从本地 `sds-handbook-reference.jsonl`/`sds-handbook-index.json` 查得后摘录 `toxicology_text` 中的LD50/LC50语句；本地未命中再联网查证。未经人工核实的条目须在批注中追加可信度警示。
@@ -399,9 +400,9 @@ c. 其他危害包括自反应介质、自燃介质、遇水放出易燃气体�
 - **冻结窗格 `C3`**：同时冻结标题行+表头行（前2行）与序号列、化学品名称列（前2列）。横向滚动查看后段列时序号和物质名称始终可见。
 
 **GB/T42594本地参考未命中时后6列合并：**
-- 当某物质在 `gbt42594-2023-reference.json` 中按 CAS/UN/中文名/别名均查不到时，**将该行第19~24列（毒性→GHS）6个单元格横向合并为一个**，只写一次 `本地参考未命中，需核对GB/T 42594-2023原文`，居中。
+- 当某物质在 `gbt42594-2023-reference.json` 中按 CAS/UN/中文名/别名均查不到时，**将该行第20~25列（毒性→GHS）6个单元格横向合并为一个**，只写一次 `本地参考未命中，需核对GB/T 42594-2023原文`，居中。
 - 命中的物质仍按6列分别填写，不合并。
-- 实现：`ws.merge_cells(start_row=r, start_column=19, end_row=r, end_column=24)`，合并前只给左上单元格写值与批注。
+- 实现：`ws.merge_cells(start_row=r, start_column=20, end_row=r, end_column=25)`，合并前只给左上单元格写值与批注。
 
 **颜色标注：**
 
@@ -459,8 +460,8 @@ c. 其他危害包括自反应介质、自燃介质、遇水放出易燃气体�
 |------|------|----------|
 | 国际数据库 | PubChem (NCBI) | CAS号、密度、水溶性 |
 | 国际数据库 | NIST Chemistry WebBook | 熔点、沸点、蒸气相对密度 |
-| 化学品供应商 | Sigma-Aldrich / MilliporeSigma | SDS、闪点、密度 |
-| 化学品数据库 | ChemicalBook | CAS号、沸点、闪点、物态 |
+| 化学品供应商 | Sigma-Aldrich / MilliporeSigma | SDS、闪点、自燃点、密度 |
+| 化学品数据库 | ChemicalBook | CAS号、沸点、闪点、自燃点、物态 |
 | 化学品数据库 | ChemSpider (RSC) | 常温物态 |
 | 应急响应数据库 | CAMEO Chemicals (NOAA) | 遇水反应性、灭火禁忌 |
 | 职业安全数据库 | NIOSH Pocket Guide (CDC) | 爆炸极限、蒸气密度 |
@@ -579,7 +580,7 @@ os.rename(tmp, final_path)
 └──────┬──────┘
        ▼
 ┌─────────────┐
-│ 4. Excel生成 │ ── Sheet1: 26列物性/法规数据+注释
+│ 4. Excel生成 │ ── Sheet1: 27列物性/法规数据+注释
 │              │ ── Sheet2: 来源汇总(18项)
 │              │ ── Sheet3: 化学品清单(可选)
 │              │ ── Sheet4: 介质-设备对照表(可选)

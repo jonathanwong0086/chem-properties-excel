@@ -55,7 +55,8 @@ def _write_index(path: Path) -> None:
 def _chemicals():
     return [
         {
-            "name": "丙酮", "cas_no": "67-64-1", "fire": "甲类", "mp": "-94.7", "toxic_gas": "否",
+            "name": "丙酮", "cas_no": "67-64-1", "fire": "甲类", "mp": "-94.7", "ait": "465",
+            "toxic_gas": "否",
             "gbt_toxicity": "未列入GB/T 42594-2023",
             "gbt_combustion": "未列入GB/T 42594-2023",
             "gbt_compatibility": "未列入GB/T 42594-2023",
@@ -65,6 +66,7 @@ def _chemicals():
             "sources": {
                 "cas_no": "PubChem https://example.test/acetone",
                 "mp": "NIST https://example.test/mp",
+                "ait": "Sigma-Aldrich SDS https://example.test/acetone-sds",
             },
         },
         {
@@ -120,19 +122,23 @@ class GenerateExcelTests(unittest.TestCase):
             self.assertLessEqual(len(sheet.title), 31)
             self.assertEqual(sheet.freeze_panes, "C3")
             self.assertEqual(
-                [sheet.cell(2, column).value for column in range(1, 27)],
+                [sheet.cell(2, column).value for column in range(1, 28)],
                 [heading for heading, _ in FIELDS],
             )
-            self.assertEqual(sheet.max_column, 26)
+            self.assertEqual(sheet.max_column, 27)
+            self.assertEqual(sheet.cell(2, 6).value, "自燃点(°C)")
+            self.assertEqual(sheet.cell(2, 7).value, "闪点(°C)")
             self.assertEqual(sheet["C3"].comment.text, "数据来源:\nPubChem https://example.test/acetone")
-            self.assertEqual(sheet["Y3"].value, "是（第三类）")
-            self.assertIn("易制毒化学品管理条例", sheet["Y3"].comment.text)
-            self.assertEqual(sheet["Z4"].value, "需核实浓度/形态")
-            self.assertIn("含量不低于20%", sheet["Z4"].comment.text)
+            self.assertEqual(sheet["F3"].value, "465")
+            self.assertIn("Sigma-Aldrich SDS", sheet["F3"].comment.text)
+            self.assertEqual(sheet["Z3"].value, "是（第三类）")
+            self.assertIn("易制毒化学品管理条例", sheet["Z3"].comment.text)
+            self.assertEqual(sheet["AA4"].value, "需核实浓度/形态")
+            self.assertIn("含量不低于20%", sheet["AA4"].comment.text)
             merged = {str(item) for item in sheet.merged_cells.ranges}
-            self.assertIn("S3:X3", merged)
-            self.assertEqual(sheet["S3"].value, "本地参考未命中，需核对GB/T 42594-2023原文")
-            self.assertNotIn("S4:X4", merged)
+            self.assertIn("T3:Y3", merged)
+            self.assertEqual(sheet["T3"].value, "本地参考未命中，需核对GB/T 42594-2023原文")
+            self.assertNotIn("T4:Y4", merged)
             self.assertEqual(workbook.worksheets[1].title, "数据来源汇总")
             self.assertEqual(workbook.worksheets[1].max_row, 20)
         finally:

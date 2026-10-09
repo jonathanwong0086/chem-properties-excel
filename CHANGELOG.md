@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/).
 
+## [3.1.0] - 2026-10-09
+
+### Added
+- 物性数据主表新增“自燃点(°C)”列（key `ait`），位于沸点与闪点之间，主表由26列扩至27列；本地《全书》库 `physchem_text` 中的“自燃温度”按原文原样摘录，未命中再联网查询供应商SDS/ChemicalBook。
+- 数据来源汇总中 Sigma-Aldrich、ChemicalBook 两项的提供字段补充“自燃点”。
+
+### Changed
+- GB/T 42594六项、易制毒/易制爆等后续列整体右移一列；本地参考未命中时合并单元格区间由第19~24列（S:X）调整为第20~25列（T:Y）。
+- 火灾危险性类别高亮列由第9列（I列）调整为第10列（J列）。
+- 物性采集字段口径由14个字段更新为15个字段；不可燃物质的自燃点与闪点/爆炸极限一样标注“—”。
+- SKILL.md 版本 3.0.0 → 3.1.0；输出说明、README、测试断言同步到27列契约。
+
 ## [3.0.0] - 2026-09-14
 
 ### Added
