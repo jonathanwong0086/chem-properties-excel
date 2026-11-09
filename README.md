@@ -101,7 +101,7 @@ pip install -r ~/.claude/skills/chem-properties-excel/requirements.txt
 
 | 文件 | 内容 | 条目数 |
 |------|------|--------|
-| `gbz2.1-oel-reference.md` | GBZ 2.1-2007 职业接触限值（MAC/TWA/STEL） | 295种 |
+| `gbz2.1-oel-reference.md` | GBZ 2.1-2019 职业接触限值（表1化学有害因素、表2粉尘；含2022年第1号修改单） | 表1 374行、表2 58行 |
 | `hazcat-2015-reference.md` | 危险化学品目录(2015版) CAS + 危险性类别 + 剧毒标记 | 2552个CAS索引条目 |
 | `toxic-gas-directory-reference.md` | 有毒气体检测目录（高毒目录 + GB/T50493 + HG/T20660 + 剧毒CAS） | 271种 |
 | `gbt42594-2023-reference.json` | GB/T 42594-2023附录A 介质危害分类（毒性/燃烧爆炸/材料相容/反应稳定/危害/GHS，按CAS/UN/名称索引） | 601种 |
@@ -110,7 +110,7 @@ pip install -r ~/.claude/skills/chem-properties-excel/requirements.txt
 | `explosive-precursor-chemicals-reference.md` | 易制爆危险化学品名录(2017年版)：名称/别名、CAS、浓度/形态条件、燃爆分类 | 按法定目录完整收录 |
 | `regulated-chemicals-index.json` | 易制毒与易制爆统一机器索引，支持CAS、规范名和别名查询 | 由上述两目录生成 |
 
-> 本地GBZ数据仅来自2007版，不能引用为GBZ 2.1-2019。需要2019版结论时须另行核对原文或可靠现行数据库，并在批注中写明实际版本。
+> 本地GBZ数据为GBZ 2.1-2019，并已叠加2022年第1号修改单对苯的修订；引用时标注“GBZ 2.1-2019（含2022年第1号修改单）”。如需采用此后发布的修订，须另行核对原文并在批注中写明实际版本。
 > 《危险化学品安全技术全书》数据经作者授权转载，仅提取"理化特性"、"毒理学信息"与"消防措施"三节原文，未经人工核实的条目在Excel批注中会有明确标注，正式合规文件请核对原书或联网复核。
 
 ## 数据来源
@@ -127,7 +127,7 @@ pip install -r ~/.claude/skills/chem-properties-excel/requirements.txt
 | NIOSH Pocket Guide (CDC) | 爆炸极限、蒸气密度 |
 | FAO/WHO JMPR | 农药原药物化及毒性 |
 | GB 50016-2014 | 火灾危险性类别 |
-| GBZ 2.1-2007 / GBZ 2.1-2019 | 职业接触限值（本地2007版；2019版须另行核实） |
+| GBZ 2.1-2019（含2022年第1号修改单） | 职业接触限值（本地2019版参考） |
 | GB 15603-1995 | 储存禁忌 |
 | GB/T 42594-2023 | 毒性、燃烧爆炸特性、材料相容性、反应稳定性、危害提示、GHS类别 |
 | GB/T 50493-2019附录B | 有毒气体蒸气特性表 |
@@ -142,14 +142,14 @@ pip install -r ~/.claude/skills/chem-properties-excel/requirements.txt
 
 ```
 chem-properties-excel/
-├── SKILL.md                          # Skill 定义（核心流程，v3.0.0）
+├── SKILL.md                          # Skill 定义（核心流程，v3.2.0）
 ├── README.md                         # 本文件
 ├── CHANGELOG.md                      # 版本历史
 ├── RELEASE_NOTES.md                  # 当前版本发布说明
 ├── LICENSE                           # GPL-3.0-only 许可证
 ├── requirements.txt                  # Python 运行依赖
 ├── generate_excel.py                 # Excel 生成模板脚本
-├── gbz2.1-oel-reference.md           # 本地参考：GBZ 2.1 OEL数据（295种）
+├── gbz2.1-oel-reference.md           # 本地参考：GBZ 2.1-2019 OEL数据（表1 374行、表2 58行）
 ├── hazcat-2015-reference.md           # 本地参考：危化品目录（2552个CAS索引条目）
 ├── toxic-gas-directory-reference.md   # 本地参考：有毒气体检测目录（271种）
 ├── gbt42594-2023-reference.json       # 本地参考：GB/T 42594-2023 介质危害分类（601种）

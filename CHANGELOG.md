@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/).
 
+## [3.2.0] - 2026-11-09
+
+### Changed
+- 本地职业接触限值参考库由 GBZ 2.1-2007 升级为 **GBZ 2.1-2019**（2020-04-01 实施），并叠加 2022 年第1号修改单（国卫通〔2022〕14号）对表1 序号12 苯的修订：PC-TWA 3 mg/m³、PC-STEL 6 mg/m³。
+- `gbz2.1-oel-reference.md` 重建为两张表：表1 化学有害因素 374 行、358 个序号；表2 粉尘 58 行、49 个序号。新增“临界不良健康效应”列，MAC / PC-TWA / PC-STEL / 备注四列与表头严格对应。
+- 数据由 GBZ 2.1-2019 标准文本解析生成，经结构与 CAS 校验位核对：修正 5 处 CAS 错误（钒 7440-62-2、硫酸及三氧化硫双 CAS、戊烷三 CAS、钼 7439-98-7、五硫化二磷 1314-80-3），重建表2 石棉、矽尘、人造矿物纤维的合并单元格。
+- SKILL.md、README、`generate_excel.py`、`examples/output_description.md` 的数据源说明统一到 2019 版口径。
+
+### Fixed
+- 原 2007 版参考文件的列错位（PC-TWA 落在 MAC 列、备注落在 PC-STEL 列）随数据源重建一并解决。
+- 苯的限值按 2022 年第1号修改单更新，不再引用已失效的 6/10。
+
+### Added
+- 新增 `tests/test_oel_reference.py`：断言表1/表2 列序、苯 3/6、甲苯 50/100、镍 PC-TWA 1、甲醛 MAC 0.5、表2 石棉与矽尘拆分值，以及全部 CAS 校验位和限值列格式。
+
+### Changed
+- SKILL.md 版本 3.1.0 → 3.2.0。
+
 ## [3.1.0] - 2026-10-09
 
 ### Added
