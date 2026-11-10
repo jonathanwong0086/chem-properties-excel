@@ -160,7 +160,8 @@ chem-properties-excel/
 ├── regulated-chemicals-index.json     # 易制毒/易制爆统一机器索引
 ├── tools/
 │   ├── build_sds_reference.py         # 从MinerU RAG提取产物构建SDS参考文件
-│   └── build_regulated_index.py       # 校验两类管制目录并重建统一索引
+│   ├── build_regulated_index.py       # 校验两类管制目录并重建统一索引
+│   └── extract_release_notes.py       # 按版本号提取发布说明（供自动发布使用）
 ├── tests/                             # 参考库、索引和Excel生成回归测试
 ├── examples/
 │   ├── input_messy.txt               # 脏数据输入示例
@@ -185,6 +186,17 @@ python -m unittest discover -s tests -v
 ```
 
 监管目录、统一索引、Excel列结构、批注、合并区域、冻结窗格和安全输出文件名均包含回归测试。
+
+## 发版
+
+1. 更新 `SKILL.md` 中的 `version`、`CHANGELOG.md` 对应章节和 `RELEASE_NOTES.md`。
+2. 合并到 `master` 后打 tag 并推送：
+
+```bash
+git tag -a v3.3.0 -m "v3.3.0" && git push origin v3.3.0
+```
+
+推送 `v*.*.*` tag 会触发 `.github/workflows/release.yml`：校验 tag 与 `SKILL.md` 版本一致、运行测试，再自动创建 GitHub Release。发布说明优先取 `RELEASE_NOTES.md`（首行须含该版本号），否则取 `CHANGELOG.md` 对应章节。
 
 ## License
 
