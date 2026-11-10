@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-chem-properties-excel-1.0
+# Copyright (C) 2026 Jonathan Wong (jonathanwong0086). All rights reserved.
 """License gate for chem-properties-excel.
 
 - Install confirmation: before first use the user must confirm they hold a

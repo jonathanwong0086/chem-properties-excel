@@ -12,7 +12,8 @@
 
 - 首次使用询问“是否已取得新华院的书面许可？”，回答“是”即可，无需上传凭证。
 - 技能文件与发布版本不一致时，仅当本机 GitHub CLI 登录作者账号 `jonathanwong0086` 才能运行。
-- 新增 `license_gate.py`、`integrity-manifest.json` 与对应测试。
+- 参考数据、脚本和生成的 Excel 均带公开署名；数据值与 v3.2.0 一致。
+- 新增 `license_gate.py`、`attribution.py`、`integrity-manifest.json` 与对应测试。
 
 ## 升级说明
 

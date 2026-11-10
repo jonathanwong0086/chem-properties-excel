@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
   - 文件完整性：`integrity-manifest.json` 记录发布文件 SHA-256（CRLF 归一化）。文件被改动时，仅当本机 GitHub CLI 登录 `jonathanwong0086` 才允许运行。
   - `check-modifier`：修改技能前校验 GitHub CLI 账号；`manifest`：作者更新清单。
 - `generate_excel.py` 直接运行时先执行许可检查；作为模块导入（测试）时不受影响。
+- 公开署名（多处、多格式）：
+  - 5 个 `*-reference.md` 标题下加版权与许可块；3 个 JSON 参考文件首键加 `_meta`；`sds-handbook-reference.jsonl` 每行加 `_license` 字段。查询逻辑不读这些字段，数据值与 v3.2.0 逐项一致。
+  - 全部 Python 文件头加 `SPDX-License-Identifier` 与版权行。
+  - 生成的 Excel 写入文档属性（创建者、说明、关键字、标识符），来源汇总表末尾加生成署名行。
+  - `attribution.py` 统一署名文本；两个构建脚本重建数据时自动带上署名。
+  - `tests/test_attribution.py` 校验以上署名均存在。
 - `tests/test_license_gate.py`：确认记录、损坏标记、清单排除规则、CRLF、改动/缺失检测、非作者拦截、作者放行，以及仓库清单与文件一致。
 
 ## [3.2.0] - 2026-11-09

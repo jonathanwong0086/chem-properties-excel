@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# SPDX-License-Identifier: LicenseRef-chem-properties-excel-1.0
+# Copyright (C) 2026 Jonathan Wong (jonathanwong0086). All rights reserved.
 """Generate the chemical-properties workbook defined by this skill."""
 
 from __future__ import annotations
@@ -17,6 +19,9 @@ import openpyxl
 from openpyxl.comments import Comment
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
+
+from attribution import AUTHOR, LICENSE_ID, REPO_URL, SKILL, workbook_description
+from license_gate import skill_version
 
 
 # Fill this list when running the module directly. Each property may have a
@@ -474,9 +479,24 @@ def _write_sources_sheet(wb, project_name: str, source_data, styles) -> None:
             url_cell.hyperlink = _string(url_cell.value)
             url_cell.font = Font(name="微软雅黑", size=9, color="0563C1", underline="single")
         ws.row_dimensions[row].height = 24
+    footer_row = len(source_data) + 4
+    footer = ws.cell(footer_row, 1, f"本表由 {SKILL} v{skill_version()} 生成（{REPO_URL}，{LICENSE_ID}）")
+    footer.font = Font(name="微软雅黑", size=8, italic=True, color="808080")
+    ws.merge_cells(start_row=footer_row, start_column=1, end_row=footer_row, end_column=4)
     for column, width in enumerate((18, 48, 50, 48), 1):
         ws.column_dimensions[get_column_letter(column)].width = width
     ws.freeze_panes = "A3"
+
+
+def _set_workbook_properties(wb, project_name: str) -> None:
+    version = skill_version()
+    props = wb.properties
+    props.title = f"{project_name}化学品物性数据"
+    props.creator = f"{SKILL} v{version}"
+    props.description = workbook_description(version)
+    props.keywords = f"{SKILL}; {LICENSE_ID}"
+    props.identifier = REPO_URL
+    props.subject = f"{SKILL} by {AUTHOR}"
 
 
 def build_excel(
@@ -497,6 +517,7 @@ def build_excel(
     workbook = openpyxl.Workbook()
     _write_main_sheet(workbook, records, project_name, index, styles)
     _write_sources_sheet(workbook, project_name, source_data, styles)
+    _set_workbook_properties(workbook, project_name)
     if chemical_list_records is not None:
         _write_simple_table(workbook, f"{project_name}化学品清单", "化学品清单", CHEMICAL_LIST_FIELDS, chemical_list_records, index, styles)
     if equipment_records is not None:

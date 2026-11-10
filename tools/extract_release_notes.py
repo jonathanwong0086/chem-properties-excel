@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-chem-properties-excel-1.0
+# Copyright (C) 2026 Jonathan Wong (jonathanwong0086). All rights reserved.
 """Extract release notes for a version tag.
 
 Prefers RELEASE_NOTES.md when its first heading names the version;

@@ -1,5 +1,9 @@
 # 易制爆危险化学品目录参考数据
 
+<!-- chem-properties-excel attribution -->
+> **版权与许可**：本文件属于 chem-properties-excel（https://github.com/jonathanwong0086/chem-properties-excel），由 Jonathan Wong (jonathanwong0086) 整理、校验和结构化。按 chem-properties-excel 使用许可协议 1.0 授权：免费使用，未经作者书面同意不得再分发或修改。原始出版物或标准的权利归原权利人所有。
+> 来源仓库：https://github.com/jonathanwong0086/chem-properties-excel ｜ 许可标识：`LicenseRef-chem-properties-excel-1.0` ｜ 联系：wjc0086@163.com
+
 > 本文件为本地离线参考数据，供物性表生成时判断“是否易制爆”。
 > 数据来源：用户提供的《易制爆危险化学品名录（2017年版）.doc》。
 > 原附件表格除表头外共 100 行，其中 9 行为类别标题、91 行为物质或条件子项；共有 74 个法定编号。

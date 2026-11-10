@@ -157,6 +157,7 @@ chem-properties-excel/
 ├── LICENSE                           # 使用许可协议 1.0（免费使用，禁止再分发）
 ├── license_gate.py                   # 安装确认、文件完整性与修改者校验
 ├── integrity-manifest.json           # 发布文件 SHA-256 清单
+├── attribution.py                    # 统一署名与许可文本
 ├── requirements.txt                  # Python 运行依赖
 ├── generate_excel.py                 # Excel 生成模板脚本
 ├── gbz2.1-oel-reference.md           # 本地参考：GBZ 2.1-2019 OEL数据（表1 374行、表2 58行）
@@ -217,6 +218,8 @@ git tag -a v3.3.0 -m "v3.3.0" && git push origin v3.3.0
 - **禁止再分发**：未经作者书面同意，不得转发、上传到其他仓库/网盘/技能市场，或打包进其他技能，无论是否修改、是否收费。
 - **禁止修改**：修改权仅限作者。技能通过本机 GitHub CLI 是否登录 `jonathanwong0086` 识别作者，文件被改动的副本在其他账号下会拒绝运行。
 - **AI 代理**：通过 AI 代理使用时，代理的行为视为使用者的行为，不得指示代理打包转发技能或整段导出参考数据。
+
+参考数据文件、脚本和生成的 Excel 均带有公开的版权与许可署名，请勿删除（LICENSE 第四条第 6 款）。
 
 v3.2.0 及之前的版本已按 GPL-3.0-only 发布，那些版本已授予的 GPL 权利不受影响。
 

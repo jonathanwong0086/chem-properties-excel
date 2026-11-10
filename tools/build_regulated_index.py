@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: LicenseRef-chem-properties-excel-1.0
+# Copyright (C) 2026 Jonathan Wong (jonathanwong0086). All rights reserved.
 """Build and validate the unified precursor/explosive chemical index.
 
 The two Markdown reference files are the maintained source of truth. This
@@ -15,6 +17,10 @@ import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from attribution import json_meta  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -226,6 +232,7 @@ def build_index(records: list[dict[str, Any]]) -> dict[str, Any]:
         for list_type in ("易制毒", "易制爆")
     }
     return {
+        "_meta": json_meta(),
         "schema_version": "1.0",
         "sources": [
             {
