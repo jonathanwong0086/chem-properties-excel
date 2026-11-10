@@ -8,7 +8,7 @@
 [![GitHub Release](https://img.shields.io/github/v/release/jonathanwong0086/chem-properties-excel)](https://github.com/jonathanwong0086/chem-properties-excel/releases)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python)](https://www.python.org/)
 [![openpyxl](https://img.shields.io/badge/openpyxl-3.1%2B-green)](https://openpyxl.readthedocs.io/)
-[![License: GPL-3.0-only](https://img.shields.io/badge/License-GPL--3.0-only-blue.svg)](LICENSE)
+[![License: Source-available, no redistribution](https://img.shields.io/badge/License-%E7%A6%81%E6%AD%A2%E5%86%8D%E5%88%86%E5%8F%91-red.svg)](LICENSE)
 
 </div>
 
@@ -60,6 +60,14 @@ mkdir -p ~/.claude/skills
 git clone https://github.com/jonathanwong0086/chem-properties-excel.git ~/.claude/skills/chem-properties-excel
 pip install -r ~/.claude/skills/chem-properties-excel/requirements.txt
 ```
+
+首次使用时，技能会询问“是否已取得新华院的书面许可？”。回答“是”即可，无需提交凭证；回答“否”则不能使用。也可以手动确认：
+
+```bash
+python ~/.claude/skills/chem-properties-excel/license_gate.py accept
+```
+
+安装后请勿修改技能目录内的文件。文件与发布版本不一致时，技能会拒绝运行，需从本仓库重新安装。
 
 ### 使用
 
@@ -142,11 +150,14 @@ pip install -r ~/.claude/skills/chem-properties-excel/requirements.txt
 
 ```
 chem-properties-excel/
-├── SKILL.md                          # Skill 定义（核心流程，v3.2.0）
+├── SKILL.md                          # Skill 定义（核心流程，v3.3.0）
 ├── README.md                         # 本文件
 ├── CHANGELOG.md                      # 版本历史
 ├── RELEASE_NOTES.md                  # 当前版本发布说明
-├── LICENSE                           # GPL-3.0-only 许可证
+├── LICENSE                           # 使用许可协议 1.0（免费使用，禁止再分发）
+├── license_gate.py                   # 安装确认、文件完整性与修改者校验
+├── integrity-manifest.json           # 发布文件 SHA-256 清单
+├── attribution.py                    # 统一署名与许可文本
 ├── requirements.txt                  # Python 运行依赖
 ├── generate_excel.py                 # Excel 生成模板脚本
 ├── gbz2.1-oel-reference.md           # 本地参考：GBZ 2.1-2019 OEL数据（表1 374行、表2 58行）
@@ -200,9 +211,19 @@ git tag -a v3.3.0 -m "v3.3.0" && git push origin v3.3.0
 
 ## License
 
-除非作者另行给予明确的书面授权，本项目的使用、复制、修改和分发均适用 [GNU General Public License v3.0 only](LICENSE)（GPL-3.0-only）。
+自 v3.3.0 起，本项目使用 [chem-properties-excel 使用许可协议 1.0](LICENSE)。它不是开源许可证，要点如下：
 
-如需申请作者特别授权，请联系：[wjc0086@163.com](mailto:wjc0086@163.com)。
+- **免费使用**：可从本仓库下载，在自己的设备上安装运行，生成的 Excel 文件可自由使用。
+- **使用前提**：须已取得新华院的书面许可。安装时回答“是”即可，无需上传凭证。
+- **禁止再分发**：未经作者书面同意，不得转发、上传到其他仓库/网盘/技能市场，或打包进其他技能，无论是否修改、是否收费。
+- **禁止修改**：修改权仅限作者。技能通过本机 GitHub CLI 是否登录 `jonathanwong0086` 识别作者，文件被改动的副本在其他账号下会拒绝运行。
+- **AI 代理**：通过 AI 代理使用时，代理的行为视为使用者的行为，不得指示代理打包转发技能或整段导出参考数据。
+
+参考数据文件、脚本和生成的 Excel 均带有公开的版权与许可署名，请勿删除（LICENSE 第四条第 6 款）。
+
+v3.2.0 及之前的版本已按 GPL-3.0-only 发布，那些版本已授予的 GPL 权利不受影响。
+
+如需分发、修改或其他授权，请联系：[wjc0086@163.com](mailto:wjc0086@163.com)。
 
 ### 第三方内容授权说明
 

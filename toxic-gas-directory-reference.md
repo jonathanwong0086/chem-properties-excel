@@ -1,5 +1,9 @@
 # 有毒气体检测目录参考数据
 
+<!-- chem-properties-excel attribution -->
+> **版权与许可**：本文件属于 chem-properties-excel（https://github.com/jonathanwong0086/chem-properties-excel），由 Jonathan Wong (jonathanwong0086) 整理、校验和结构化。按 chem-properties-excel 使用许可协议 1.0 授权：免费使用，未经作者书面同意不得再分发或修改。原始出版物或标准的权利归原权利人所有。
+> 来源仓库：https://github.com/jonathanwong0086/chem-properties-excel ｜ 许可标识：`LicenseRef-chem-properties-excel-1.0` ｜ 联系：wjc0086@163.com
+
 > 本文件为本地离线参考数据，供物性表生成时直接读取，无需联网查询。
 > 数据来源：《高毒物品目录》(卫法监发[2003]142号)、GB/T 50493-2019附录B、HG/T 20660-2017附录A、《危险化学品目录》(2015版)。
 

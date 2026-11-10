@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-chem-properties-excel-1.0
+# Copyright (C) 2026 Jonathan Wong (jonathanwong0086). All rights reserved.
 import re
 import unittest
 from pathlib import Path

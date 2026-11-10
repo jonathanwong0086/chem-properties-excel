@@ -1,5 +1,9 @@
 # 《危险化学品目录》(2015版) — 本地参考数据
 
+<!-- chem-properties-excel attribution -->
+> **版权与许可**：本文件属于 chem-properties-excel（https://github.com/jonathanwong0086/chem-properties-excel），由 Jonathan Wong (jonathanwong0086) 整理、校验和结构化。按 chem-properties-excel 使用许可协议 1.0 授权：免费使用，未经作者书面同意不得再分发或修改。原始出版物或标准的权利归原权利人所有。
+> 来源仓库：https://github.com/jonathanwong0086/chem-properties-excel ｜ 许可标识：`LicenseRef-chem-properties-excel-1.0` ｜ 联系：wjc0086@163.com
+
 > 数据来源：《危险化学品目录》(2015版)（WPS版.doc，完整多行危害类别）
 > 共收录2552种化学品（含CAS号+完整GHS危害类别）。
 

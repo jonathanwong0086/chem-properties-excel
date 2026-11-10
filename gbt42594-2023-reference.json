@@ -1,4 +1,12 @@
 {
+  "_meta": {
+    "skill": "chem-properties-excel",
+    "author": "Jonathan Wong (jonathanwong0086)",
+    "contact": "wjc0086@163.com",
+    "repository": "https://github.com/jonathanwong0086/chem-properties-excel",
+    "license": "LicenseRef-chem-properties-excel-1.0",
+    "notice": "本文件属于 chem-properties-excel（https://github.com/jonathanwong0086/chem-properties-excel），由 Jonathan Wong (jonathanwong0086) 整理、校验和结构化。按 chem-properties-excel 使用许可协议 1.0 授权：免费使用，未经作者书面同意不得再分发或修改。原始出版物或标准的权利归原权利人所有。"
+  },
   "schema_version": "1.0",
   "document": {
     "standard": "GB/T 42594—2023",

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-chem-properties-excel-1.0
+# Copyright (C) 2026 Jonathan Wong (jonathanwong0086). All rights reserved.
 import json
 import tempfile
 import unittest
@@ -140,7 +142,16 @@ class GenerateExcelTests(unittest.TestCase):
             self.assertEqual(sheet["T3"].value, "本地参考未命中，需核对GB/T 42594-2023原文")
             self.assertNotIn("T4:Y4", merged)
             self.assertEqual(workbook.worksheets[1].title, "数据来源汇总")
-            self.assertEqual(workbook.worksheets[1].max_row, 20)
+            sources_sheet = workbook.worksheets[1]
+            self.assertEqual(sources_sheet.max_row, 22)
+            self.assertIsNone(sources_sheet["A21"].value)
+            self.assertIn("chem-properties-excel", sources_sheet["A22"].value)
+            self.assertIn("LicenseRef-chem-properties-excel-1.0", sources_sheet["A22"].value)
+            self.assertIn("A22:D22", {str(item) for item in sources_sheet.merged_cells.ranges})
+            props = workbook.properties
+            self.assertTrue(props.creator.startswith("chem-properties-excel v"))
+            self.assertIn("https://github.com/jonathanwong0086/chem-properties-excel", props.description)
+            self.assertIn("LicenseRef-chem-properties-excel-1.0", props.keywords)
         finally:
             workbook.close()
 

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# SPDX-License-Identifier: LicenseRef-chem-properties-excel-1.0
+# Copyright (C) 2026 Jonathan Wong (jonathanwong0086). All rights reserved.
 """
 从 MinerU RAG 提取产物（entries.jsonl）构建精简本地参考文件：
     sds-handbook-reference.jsonl  — 每行一个化学品条目（理化特性+毒理学信息+消防措施原文）
@@ -16,6 +18,10 @@ import os
 import json
 import re
 import zipfile
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from attribution import ROW_TAG, json_meta  # noqa: E402
 
 IMG_PATTERN = re.compile(r"\[image:[^\]]*\]\n?")
 HEADER_SPLIT = re.compile(r"(^##\s.+$)", re.MULTILINE)
@@ -107,6 +113,7 @@ def build(zip_path, out_dir):
                         "physchem_text": sections.get("理化特性", ""),
                         "toxicology_text": sections.get("毒理学信息", ""),
                         "firefighting_text": sections.get("消防措施", ""),
+                        "_license": ROW_TAG,
                     }
                     output_row = n_written
                     out.write(json.dumps(rec, ensure_ascii=False) + "\n")
@@ -122,6 +129,7 @@ def build(zip_path, out_dir):
                         add_to_index(index["aliases_en"], alias, output_row)
 
         index_doc = {
+            "_meta": json_meta(),
             "schema_version": "1.0",
             "source": "危险化学品安全技术全书·通用卷第三版SDS（MinerU RAG提取，理化特性+毒理学信息+消防措施三节原文）",
             "row_file": "sds-handbook-reference.jsonl",

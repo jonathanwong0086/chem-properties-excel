@@ -32,3 +32,6 @@ chem-properties-excel-chatflow.yml
 # Output (don't track generated Excel files)
 *.xlsx
 !examples/*.xlsx
+
+# License gate: local install confirmation, never commit
+.license-accepted
