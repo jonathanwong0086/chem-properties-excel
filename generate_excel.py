@@ -525,6 +525,17 @@ def build_excel(
 
 
 if __name__ == "__main__":
+    import sys
+
+    from license_gate import LicenseError, enforce
+
+    try:
+        enforce()
+    except LicenseError as exc:
+        for stream in (sys.stdout, sys.stderr):
+            if hasattr(stream, "reconfigure"):
+                stream.reconfigure(encoding="utf-8")
+        raise SystemExit(f"LICENSE: {exc}")
     if not chemicals:
         print("请先在 chemicals 列表中填入化学品数据")
     else:

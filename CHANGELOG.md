@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/).
 
+## [3.3.0] - 2026-11-10
+
+### Changed
+- **许可证由 GPL-3.0-only 改为 chem-properties-excel 使用许可协议 1.0**（`LicenseRef-chem-properties-excel-1.0`）：免费使用，未经作者书面同意禁止再分发和修改。v3.2.0 及之前版本已授予的 GPL 权利不受影响。
+- SKILL.md 新增 §-1 许可检查，每次调用先执行；frontmatter 新增 `license` 字段，版本 3.2.0 → 3.3.0。
+
+### Added
+- `license_gate.py`：
+  - 安装确认：首次使用询问“是否已取得新华院的书面许可？”，回答“是”后在本地写入 `.license-accepted`，不上传任何凭证。
+  - 文件完整性：`integrity-manifest.json` 记录发布文件 SHA-256（CRLF 归一化）。文件被改动时，仅当本机 GitHub CLI 登录 `jonathanwong0086` 才允许运行。
+  - `check-modifier`：修改技能前校验 GitHub CLI 账号；`manifest`：作者更新清单。
+- `generate_excel.py` 直接运行时先执行许可检查；作为模块导入（测试）时不受影响。
+- `tests/test_license_gate.py`：确认记录、损坏标记、清单排除规则、CRLF、改动/缺失检测、非作者拦截、作者放行，以及仓库清单与文件一致。
+
 ## [3.2.0] - 2026-11-09
 
 ### Changed
